@@ -1,0 +1,401 @@
+
+\section*{6. Decoherence in quantum transport}
+\subsection*{6.1. Phenomenology}
+It is obvious that because of the experimental limits for the coherent description introduced above one should observe \cite{Washburn1993} important departures from those predictions. A first alternative to include decoherence in quantum transport was inspired by the Landauer's formulation. There, the leads, while accepting a quantum description of their spectra and their ability to propagate excitations, are the ultimate source of irreversibility and decoherence: Electrons leaving the leads toward the sample are completely incoherent with the electrons coming from the other leads (see Fig.~\ref{fig:TPM}). In fact, it is obvious that a wire connected to a voltmeter, by ``measuring'' the number of electrons in it, must produce some form of collapse of the wave function leading to decoherence.
+
+\begin{figure}[h]
+  \includegraphics[width=0.95\columnwidth]{Figures/17_TPM.pdf}
+\caption{Representation of a three probe measurement. The volt-meter may be strongly coupled and is a source of decoherence.}
+\label{fig:TPM}
+\end{figure}
+
+Besides, no net current flows toward a voltmeter. Leads are then a natural source of decoherence which can be readily described in the Landauer's picture if one uses the Landauer conductances together with the Kirchhoff balance equations. This fact was firstly realized by M. Büttiker \cite{Buttiker1988b}. The procedure, resulting from the application of Kirchhoff law to each lead, is called the Landauer-Büttiker equation \cite{Buttiker1986}. Let us see how it works for the case of a single voltmeter. In matrix form
+
+\begin{widetext}
+\begin{equation}
+    \left(\begin{array}{l}
+I_{L} \\
+I_{\phi} \\
+I_{R}
+\end{array}\right)=\left(\begin{array}{ccc}
+-\left(T_{R, L}+T_{\phi, L}\right) & T_{L, \phi} & T_{L, R} \\
+T_{\phi, L} & -\left(T_{R, \phi}+T_{L, \phi}\right) & T_{\phi, R} \\
+T_{R, L} & T_{R, \phi} & -\left(T_{\phi, R}+T_{L, R}\right)
+\end{array}\right)\left(\begin{array}{c}
+V_{L} \\
+V_{\phi} \\
+V_{R}
+\end{array}\right) .
+\end{equation}
+\end{widetext}
+
+Here, the unknowns are $I_{L}, I_{R}$ and $V_{\phi}=\delta \mu_{\phi} / e$. The second equation must be solved with the voltmeter condition $I_{\phi} \equiv 0$
+
+\begin{equation}
+0=\frac{e}{h} T_{\phi, L}\left(\delta \mu_{\phi}-\delta \mu_{L}\right)+\frac{e}{h} T_{R, \phi}\left(\delta \mu_{\phi}-\delta \mu_{R}\right), 
+\end{equation}
+
+yielding us $\delta \mu_{\phi}$ as
+
+\begin{equation*}
+    \delta \mu_{\phi}=\frac{T_{\phi L}\delta\mu_L+T_{\phi R}\delta\mu_R}{T_{\phi L}+T_{\phi R}}
+\end{equation*}
+
+to be introduced in the third equation
+
+\begin{equation}
+I_{L}=\frac{e}{h} T_{R, L}\left(\delta \mu_{L}-\delta \mu_{R}\right)-\frac{e}{h} T_{R, \phi}\left(\delta \mu_{L}-\delta \mu_{\phi}\right)
+\end{equation}
+%Previous equation: I_{R}=\frac{e}{h} T_{R, L}\left(\delta \mu_{L}-\delta \mu_{R}\right)+\frac{e}{h} T_{R, \phi}\left(\delta \mu_{L}-\delta \mu_{\phi}\right)
+
+to obtain the current at the voltage source
+
+\begin{equation}
+I_{R}=\frac{e}{h} \widetilde{T}_{R, L}\left(\delta \mu_{L}-\delta \mu_{R}\right) 
+\end{equation} 
+
+with
+
+\begin{equation}
+\label{eq:trlphi}
+\tilde{T}_{R, L}=T_{R, L}+\frac{T_{R, \phi} T_{\phi, L}}{T_{R, \phi}+T_{\phi, L}} .
+\end{equation}
+
+The first term can be identified with the coherent part, while the second is the incoherent or sequential, i.e. the contribution to the current originated from particles coming from the voltmeter. This corresponds to an effective conductance of
+
+\begin{equation}
+\widetilde{G}_{R, L}=G_{R, L}+\left(G_{R, \phi}^{-1}+G_{\phi, L}^{-1}\right)^{-1}, 
+\end{equation}
+
+
+which can be identified with the electrical circuit of in Fig.~\ref{fig:CCR}. This classical view clarifies the competition between coherent and incoherent transport. What this circuit does not hint at is that in Quantum Mechanics one cannot modify one of the resistances without deeply altering the others.
+
+\begin{figure}[h]
+  \includegraphics[width=0.95\columnwidth]{Figures/18_CCR.pdf}
+\caption{Classical circuit representation of the non-classical system with quantum coherent and incoherent transport. The coherent component is a direct resistance between left ($L$) and right $(R)$ electrodes. Quantum mechanics makes these effective resistances interdependent.}
+\label{fig:CCR}
+\end{figure}
+
+So far with the phenomenology. The next important step is to connect these quantities with actual model Hamiltonians. This connection was made explicit by the contribution of D'Amato and Pastawski \cite{DAmato1990} (DP).
+
+\subsection*{6.2. The D'Amato-Pastawski model for decoherence}
+The DP model refers to a simple way to account for the infinite degrees of freedom of the thermal bath or the electron reservoirs. This follows from our general approach: to obtain
+exact solutions to simple problems instead of finding approximate solutions of complex problems. Let us first review the basic mathematical background that made possible the selection of a simple Hamiltonian that best represents the complex sample-environment system. The objective was to use its exact solution in the Landauer's transport equation. Here, we describe the DP model for decoherence and show how it applies to a simple resonant tunneling system. Consider the sample's Hamiltonian
+
+\begin{equation}
+\label{eq:hlattice}
+\hat{\mathcal{H}}_{0}=\sum_{i=1}^{N}\left\{E_{i}|i\rangle\langle i|+\sum_{j=1(\neq i)}^{N} V_{i, j}[|i\rangle\langle j|+|j\rangle\langle i|]\right\}, 
+\end{equation}
+
+where $i$ and $j$ indicate sites on a lattice. Notice that interactions are not restricted to nearest neighbors. However, for the usual short range interactions, the Hamiltonian matrix has the advantage of being sparse. The local dephasing field is represented by
+
+\begin{equation}
+\label{eq:dephfield}
+{ }^{\phi} \hat{\Sigma}^{R}=\sum_{i}^{N}-(\mathrm{i})^{\phi} \Gamma|i\rangle\langle i|, 
+\end{equation}
+
+where ${ }^{\phi} \Gamma=\hbar /\left(2 \tau_{\phi}\right)$ and we consider for simplicity only two one-dimensional current leads $L$ and $R$ connected at sites 1 and $N$ respectively
+
+\begin{equation}
+\text { leads } \hat{\Sigma}^{R}=-i\left({ }^{L} \Gamma|1\rangle\langle 1|+{ }^{R} \Gamma|N\rangle\langle N|\right) .
+\end{equation}
+
+We see that the $1^{\text {st }}$ site has escape contributions towards both, the current lead at the left, ${ }^{L} \Gamma_{1}$, and the inelastic channel associated to this site, ${ }^{\phi} \Gamma_{1}$. The on-site chemical potential will ensure that no net current flows through the latter channel.
+
+\subsection*{6.3. The solution for incoherent transport}
+The adimensional conductances are just the transmission probabilities. In principle, they can be computed in terms of the Green's function according to Eq.~\eqref{eq:TaR}. To simplify the notation we define the total transmission from each site as
+
+\begin{equation}
+\label{eq:tottra}
+    \left(\frac{1}{g_{i}}\right) \equiv \sum_{j=0}^{N+1} T_{j, i}= \begin{cases}4 \pi N_{1}{ }^{L} \Gamma_{1} & \text { for } i=0  \\ 4 \pi N_{i}{ }^{\phi} \Gamma_{i} & \text { for } 1 \leq i \leq N \\ 4 \pi N_{N}{ }^{R} \Gamma_{N} & \text { for } i=N+1\end{cases}
+\end{equation}
+
+The last equality follows from the optical theorem. The balance equation becomes
+
+\begin{equation}
+\label{eq:balaeq}
+I_{i} \equiv 0=-\left(\frac{1}{g_{i}}\right) \delta \mu_{i}+\sum_{j=0}^{N+1} T_{i, j} \delta \mu_{j},
+\end{equation}
+
+where the sum adds all the electrons that emerge from a last collision at other sites ( $j$ 's) and propagate coherently to site $i$. These include the electrons coming from the current source i.e. $T_{i, L} \delta \mu_{L}$ and the current drain. However, since we refer all voltages to the last one, $T_{i, R} \delta \mu_{R} g \equiv 0$. We remark that here we do not exclude the $i$-th site from the summations in Eqs.~\eqref{eq:balaeq} and \eqref{eq:tottra}. While this has no consequences in the steady state, they become relevant in the time dependent formulation. To fix the physical interpretation we emphasize that the last term accounts for the electrons that emerging from a dephasing collision at site $j$ will propagate coherently to site $i$ where they have a dephasing collision. The first term accounts for all the electrons that emerge from this collision on site $i$ to have a further dephasing collision either in the sample or in the leads. The net current is identically zero at any dephasing channel (``lead''). The other two equations are
+
+\begin{eqnarray}
+I_{L} & \equiv-I=-\left(\frac{1}{g_{i}}\right) \delta \mu_{L}+\sum_{j=0}^{N} T_{i, j} \delta \mu_{j},\nonumber \\
+I_{R} & \equiv I=-\left(\frac{1}{g_{i}}\right) \delta \mu_{i}+\sum_{j=0}^{N+1} T_{i, j} \delta \mu_{j}. 
+\end{eqnarray}
+
+Here, we need the local chemical potentials. They can be obtained from Eq.~\eqref{eq:balaeq}. In a compact notation, these coefficients can be arranged in a matrix form which excludes the leads that are current source and sink 
+
+\begin{widetext}
+    \begin{equation}
+        \mathbf{W}=\left(\begin{array}{ccccc}
+T_{1,1}-1 / g_1 & T_{1,2} & T_{1,3} & \cdots & T_{1, N} \\
+T_{2,1} & T_{2,2}-1 / g_2 & T_{2,3} & \cdots & T_{2, N} \\
+T_{3,1} & T_{3,2} & T_{3,3}-1 / g_3 & \cdots & T_{3, N} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+T_{N, 1} & T_{N, 2} & T_{N, 3} & \cdots & T_{N, N}-1 / g_N
+\end{array}\right), 
+    \end{equation}
+\end{widetext}
+
+from which the chemical potential in each site can be calculated as
+
+\begin{equation}
+\delta \mu_{i}=\sum_{j=1}^{N}\left[\mathbf{W}^{-1}\right]_{i, j} T_{j, 0} \delta \mu_{0} . 
+\end{equation}
+
+Replacing these chemical potentials back in Eq.~\eqref{eq:balaeq} the effective transmission can be calculated
+
+\begin{equation}
+\widetilde{T}_{R, L}=\underbrace{T_{R, L}}_{\text {coherent }}+\underbrace{\sum_{j=1}^{N} \sum_{i=1}^{N} T_{R, j}\left[\mathbf{W}^{-1}\right]_{j, i} T_{i, L}}_{\text {incoherent }} 
+\end{equation}
+
+The right side contains two contributions: the first comes from electrons that propagate quantum coherently through the sample, the second contains the incoherent contributions due to electrons that suffer their first collision at site $i$ and their last at site $j$.
+
+Until now the procedure has been completely general, there is no assumption involving the dimensionality or geometry of the sample. The system of Fig.~\ref{fig:DAP} was adopted by DP only because it has a simple analytical solution for various situations ranging from tunneling to ballistic transport. We summarize the procedure for the linear response calculation. First, we calculated the complete Green's function in a tight binding model. With the Green's functions we then evaluate the transmittances between every pair of sites in the sample (i.e. nodes in the discrete equation) and write the transmittance matrix $\mathbf{W}$. Then, we solve for the current conservation equations that involves the inversion of $\mathbf{W}$.
+
+\begin{figure}[h]
+  \includegraphics[width=0.95\columnwidth]{Figures/19_DAP.pdf}
+\caption{Pictorial representation of the D'Amato-Pastawski model for the case of a linear chain.}
+\label{fig:DAP}
+\end{figure}
+
+What are the limitations of this model? A conceptual one is the momentum demolition produced by the localized scattering model. Therefore, we go directly from quantum ballistic description to a classical diffusive one. To describe the transition from quantum ballistic to classical ballistic, one should modify the model to have the scattering defined in momentum or energy basis.
+
+The other aspect is merely computational. Since the resulting matrix $\mathbf{W}$ is no longer sparse, this inversion is done at the full computational cost. A physically appealing alternative to matrix inversion was proposed in DP. The idea was to expand the inverse matrix in series on the dephasing collisions, resulting in
+
+
+\begin{eqnarray}
+\label{eq:TRLtilde}
+\widetilde{T}_{R, L}&=&T_{R, L}+\sum_{i} T_{R, i} g_{i} T_{i, L}+\sum_{i} \sum_{j} T_{R, i} g_{i} T_{i, j} g_{j} T_{i, L}\nonumber \\
+&&+\sum_{i} \sum_{j} \sum_{l} T_{R, i} g_{i} T_{i, j} g_{j} T_{j, l} g_{l} T_{l, L}+\ldots 
+\end{eqnarray}
+
+
+The formal equivalence with the self-energy expansion of Matsubara and Toyosawa in terms of locators \cite{Matsubara1961} or local Green's function justifies identifying $g_{i}$ as a locator for the classical Markovian equation for the density \cite{Pastawski1991} generated by the transition probabilities.
+
+As an example of use of Eq.~\eqref{eq:TRLtilde}, one can readily apply it for the model of Section 6.1 obtaining Eq.~\eqref{eq:trlphi}. This also constitutes the basis for a perturbative method of calculating the conductance with a substantially reduced computational cost. This strategy has been applied with considerable success to explain the stability of the Quantum Hall Effect \cite{Gagel1996} against scattering and dephasing.
+
+Notice that Eq.~\eqref{eq:TRLtilde} can also be rearranged as
+
+\begin{equation}
+\underbrace{\widetilde{T}_{R, L}}_{\text{total}}=\underbrace{T_{R, L}}_{\text{coherent}}+\sum_{i=1}^{N} \underbrace{\widetilde{T}_{R, i}}_{\text{total  }} \times \underbrace{g_{i}}_{1^{st}\text{ collision}} \times \underbrace{T_{i, L}}_\text{coherent} . 
+\end{equation}
+
+The summation on the right hand side has the structure of the Dyson equation. It is a Bethe-Salpeter equation. This is graphically represented in Fig.~\ref{fig:FDDE}. We notice that according to the optical theorem $g_{i}=2 \pi \hbar \tau_{\phi} N_{i}$, while both transmittances entering the vertices in the figure are proportional to $1 / \tau_{\phi}$ the whole product involved in the vertex is proportional to the dephasing rate. The arrows make explicit that transmittances are the product of a retarded (electron) and an advanced (hole) Green's function. To describe diffusive scattering by impurities one must replace the whole electron-hole pair by its ensemble average calculated in the ladder approximation, or eventually include their quantum corrections (see Ref.~\onlinecite{Pastawski1991}).
+
+\begin{figure}[h]
+  \includegraphics[width=0.95\columnwidth]{Figures/20_FDDE.pdf}
+\caption{Figure 20. Feynman Diagram for the Dyson equation of the transmittance. It is equivalent to a particle-hole Green's function in the ladder approximation where the usual interaction rung connecting the two propagators is here represented by a dot.}
+\label{fig:FDDE}
+\end{figure}
+
+Since the transmittance is essentially a two-particle Green's function, now it is a particular case of the Bethe-Salpeter equation which is solved in the ``ladder'' approximation which for the present model is exact (see appendix B in Ref.~\onlinecite{Pastawski1991}) for a detailed formalization of this picture with the Keldysh formalism). In summary, depending on the approximation used for the density propagator, the self-consistent solution contains the metallic transport, the weak-localization corrections and even the thermally activated hopping regime. It also can be viewed as a self-consistent Born approximation \cite{Hershfield1991} for the electron-phonon interaction. One might also want to introduce other forms of interaction, such as those which conserve momentum \cite{Knittel1999,Brouwer1997}, but we will not extend on this point here.
+
+Many of the results contained in the D'Amato-Pastawski paper for ordered and disordered systems were later extended in great detail in a series of papers by S . Datta and are described in his didactic book \cite{Datta1995}. In the next section, we will illustrate how the previous ideas work by considering again our reference toy model for resonant tunneling.
+
+\subsection*{6.4. The effect of decoherence in molecular wires: the Polyaniline case}
+
+The case of the role of decoherence for electronic transport with Polyaniline (PAni) is discussed in \cite{PhysRevB.82.144201}. We consider a system of PAni emeraldine salt chain and use the process of decimation to obtain a one-dimensional effective system. This process is shown in Fig.~\ref{fig:PAni}. Each ring is replaced by the proper renormalized sites at the place of the para-carbon atoms.
+
+\begin{figure} [ht]
+    \includegraphics[width=0.95\columnwidth]{Figures/21_PAni.pdf}
+    \caption{Representation of benzoid rings decimated to obtain equivalent renormalized units in one dimension. Sources of decoherence are shown.}
+    \label{fig:PAni}
+\end{figure}
+
+In this case, we consider Hamiltonian for the sample as the modification of Eq.~\eqref{eq:hlattice} for short range interactions
+
+\begin{equation}
+    \hat{\mathcal{H}}=\sum_{i=1} ^NE_{i}|i\rangle\langle i|+V_{i}|i\rangle\langle i+1|+V_{ i}|i+1\rangle\langle i|,
+\end{equation}
+where $V_{i,i}= V_i$. When $i=3s+1$ with $s$ positive integer, $E_i$ is the nitrogen $p_z$-orbital energy and $V_i$ is the $\pi$ binding energy (hopping) between the nitrogen and the $para$-C $p_z$ orbitals. When $i
+=3s$ and $i=3s-1$ we have the renormalized parameters for $para$-C $p_z$ orbitals
+
+\begin{equation}
+    V_i=\dfrac{V_{oo}V_{po}^2}{(\varepsilon-E_0)\left(\varepsilon-E_0-\dfrac{V_{oo}^2}{\varepsilon-E_0}\right)}
+\end{equation}
+
+and
+
+\begin{equation}
+    E_i=E_p+\dfrac{V_{po}^2}{\varepsilon-E_0-\dfrac{V_{oo}^2}{\varepsilon-E_0}}
+\end{equation}
+
+where $E_o$ and $E_p$ are bare site energies for electrons in the $p_z$ orbitals of $ortho$-C and $para$-C, respectively; $V_{oo}$ is the hopping
+between $ortho$-C and $Vpo$ is the hopping between a $para$-C and $ortho$-C.
+
+For calculating the effect of decoherent sources on electron $p_z$ orbitals sites we can use Eq.~\eqref{eq:dephfield}. However, a first-principles calculation of this correction is really complex for the multiple effects that must be taken into account. Now, we will consider two physically meaningful sources of decoherence.
+
+\subsubsection*{6.4.1. Interchain hopping}
+
+We consider the effect of $V_X$, an interchain hopping at site $i$. For an electron $i$, any neighboring chain can act as an ``environment'', for the electron jumping inside the chain has two options:
+\begin{enumerate}
+    \item to escape toward this alternative propagation channel and never return. This is obviously decoherent as it cannot interfere any longer with the main pathway.
+    \item To return after having
+    an ergodic walk on the side chain. In this case it is just the excessive amount of interferences and antiresonances involved that leads to a decoherent description.55 Each node in the plot corresponds to a multichain electronic state.
+\end{enumerate}
+This hopping is illustrated in Fig.~\ref{fig:hopp}.
+
+\begin{figure} [ht]
+    \includegraphics[width=0.95\columnwidth]{Figures/22_HOPP.pdf}
+    \caption{Interchain hopping at site $i$.  Quantum numbers $s$  label different PAni chains. This representation illustrates the similarity with Fock-space representation of the electron-phonon system.}
+    \label{fig:hopp}
+\end{figure}
+
+We can easily calculate the self-energy $\Sigma_i^X$ for the $V_X$ coupling using Eq.~\eqref{eq:selfenergybloch},
+
+\begin{equation}
+    \Sigma_i^X=\frac{|V_X|^2}{\varepsilon-(E_i-i\eta)-\Sigma_i}=\left(\frac{V_X}{V_{i,i+1}}\right)^2\Sigma_i,
+\end{equation}
+
+where $E_i$, $V_{i,i+1}$ are site and hopping strength within the chain. Given that the interchain energy uncertainty $\Gamma_i^X$ is the imaginary part of $\Sigma_i^X$, we can calculate it as
+
+\begin{equation}
+   \Gamma_i^X =\left(\frac{V_X}{V_{i,i+1}}\right)^2\Gamma_i,
+\end{equation}
+
+where $\Gamma_i$ is the imaginary part of the total self energies at site $i$. We can estimate $\Gamma_i$ by considering that the side chain is an infinite PAni strand. Given this condition, $\forall \text{ site }i$ there are the representative site energy $\overline{E}\approx -0.3$ eV and $\overline{V}\approx-3.6$ eV for intrachain $\pi$ bonds. Thus, using Eq.~\eqref{eq:Gammanonzero} we have 
+
+\begin{equation}
+    \Gamma_i^X=\left(\dfrac{V_X}{\overline{V}}\right)^2\sqrt{\overline{V}^2-\left(\dfrac{\varepsilon-\overline{E}}{2}\right)^2}.
+\end{equation}
+
+In this way, we obtain an approximate expression for the first source of decoherence.
+
+\subsubsection*{6.4.2. Torsional phonon coupling}
+Other important source of decoherence in this case are vibrational degrees of motion. From the
+geometrical inspection of the molecular structure,torsional strains on benzenoid rings disrupt $\pi$ bonds between $p_z$ orbitals of $para$-carbons and nitrogens. Their
+overlap depends on the angle $\theta$ between the orbital axes. As a result, the corrected hopping energies can be written as
+\begin{equation*}
+    V=V^0\cos(\theta)\approx V^0\left(1-\frac{\theta^2}{2}\right).
+\end{equation*}
+
+The natural frequency $\omega_\theta$ of this
+torsional motion determine the vibrational energy of benzenoid rings. A self-consistent description requires that the restoring force $I\omega_\theta^2\theta$, written in terms of the moment of inertia $I$ of the benzenoid ring, should coincide with the net change in the electronic energy described by the tight-binding
+model. In this case it yields
+\begin{equation*}
+    V^0=I\omega_\theta^2
+\end{equation*}
+leading to $\hbar\omega_\theta\approx 2\times10^{-2}$ eV$<k_BT_R$, where $k_B$ is Boltzmann's constant and $T_R$ room temperature. 
+
+In terms of the second quantization operators
+
+\begin{eqnarray}
+    \hat{b}&=&\sqrt{\frac{I\omega_\theta}{2\hbar}}\left(\theta+\dfrac{i\dot{\theta}}{\omega_\theta}\right), \nonumber \\
+    \hat{b}^+&=&\sqrt{\frac{I\omega_\theta}{2\hbar}}\left(\theta-\dfrac{i\dot{\theta}}{\omega_\theta}\right) \nonumber
+\end{eqnarray}
+
+we get the perturbation given by the coupling Hamiltonian
+
+\begin{eqnarray}
+    \hat{\mathcal{H}}_{el-ph}&=&-\frac{1}{4}\hbar\omega_\theta(\hat{b}+\hat{b}^+)^2(\delta_{i',i}+\delta_{i',i-1}) \nonumber \\
+    &&\times\sum_{i'} \left[|i'\rangle\langle i'+1|+|i'+1\rangle\langle i'|\right].
+\end{eqnarray}
+
+A Fock-space representation of this interaction Hamiltonian is represented in Fig.~\ref{fig:ELPH}
+
+\begin{figure}
+    \includegraphics[width=0.95\columnwidth]{Figures/23_ELPH.pdf}
+    \caption{Fock-space representation of state $|i,n\rangle$ and its surroundings. The middle row represents electronic states with $n$ phonons in the PAni chain. Lower and upper rows represent the same chain but with different numbers of phonons. Black dotted lines are electron-phonon couplings.}
+    \label{fig:ELPH}
+\end{figure}
+
+In this case, the effect of the perturbation
+on the state on a local site $i$ can evaluated with the Fermi Golden Rule Eq.~\eqref{FGR},
+
+\begin{eqnarray}
+    \frac{1}{\tau_i(\varepsilon)}&=&\sum_n P(n)\left[\frac{2\pi}{\hbar}\sum_{i',n'}|\langle i,n| \hat{\mathcal{H}}_{el-ph}|i',n'\rangle|^2\right] \nonumber\\
+    && \times\delta[(\varepsilon+n\hbar\omega_\theta)-(E_{i'}+n'\hbar\omega_\theta)]
+\end{eqnarray}
+where 
+\begin{equation*}
+    |i,n\rangle=\frac{1}{\sqrt{n!}}\left(\hat{b}^+\right)^n \hat{c}_i^+ |\emptyset \rangle,
+\end{equation*}
+here $\hat{c}_i^+$ is the creation operator, $|\emptyset \rangle$ is the electron and phonon vacuum and $n$ is the label for the number of vibrational quantums whose thermal probability is $P(n)$. In the case of interest,
+we consider electrons at the Fermi level, $E_F$. Thus, after energy integration and using the thermal average $\langle n\rangle\equiv\overline{n}=\sum P(n)n$for the expectation number of n, the decay rate becomes
+
+\begin{eqnarray}
+    \frac{1}{\tau_i}&=&\frac{\pi}{16\hbar}(\hbar\omega_\theta)^2\{(\overline{n}^2+4\overline{n}+2)N(E_F-2\hbar\omega_\theta) \nonumber \\
+    && +2\overline{n}^2N(E_F+2\hbar\omega_\theta)+(8\overline{n}^2+8\overline{n}+1)N(E_F)\}.
+\end{eqnarray}
+
+Electrons are allowed to interact with environment
+only by absorbing or emitting phonon pairs. This is shown in
+Fig~\ref{fig:ELPH}. However, without much loss of generality, we assume
+that $k_BT\gg\hbar\omega_\theta$, so it is possible to approximate $E_F\approx E_F\pm 2\hbar\omega_\theta$ and $\overline{n}\approx\frac{k_BT}{\hbar\omega_\theta}$. As a result,
+
+\begin{equation}
+     \frac{1}{\tau_i}=\frac{\pi}{8\hbar}(\hbar\omega_\theta)^2N(E_F)\left[12\left(\frac{k_BT}{\hbar\omega_\theta}\right)^2+12\left(\frac{k_BT}{\hbar\omega_\theta}\right)+3\right].
+\end{equation}
+
+In the high temperature regime, that is $k_BT\gg\hbar\omega_\theta$, the energy uncertainty $\Gamma_\phi$ reduces to 
+
+\begin{equation}
+\label{eq:gammaphel}
+    \Gamma_\phi=\frac{\hbar}{2}\frac{1}{\tau_i}=\frac{3\pi}{4}N(E_F)(k_BT)^2.
+\end{equation}
+
+For highly localized states, the imaginary self-energy results mainly from the decoherent process described above. Thus
+
+\begin{eqnarray}
+    N(\varepsilon)&\approx&\frac{1}{\pi}\frac{\Gamma_\phi}{(\varepsilon-E_0)+\Gamma\phi^2} \\
+    &&\approx \frac{1}{\pi\Gamma_\phi}.
+\end{eqnarray}
+
+So, from Eq.~\eqref{eq:gammaphel} we obtain
+
+\begin{equation}
+    \Gamma_\phi\approx k_BT.
+\end{equation}
+
+The last equation leads to a crucial consequence: for localized regime, the decoherence caused by vibrational modes is on the order of the thermal energy. 
+
+\subsection*{6.5. Effects of decoherence in resonant tunneling}
+If we consider the ``sample'' to consist of a single state \cite{Pastawski1992}. If we choose to absorb the energy shifts into the site energies $\widetilde{E}_{0}=E_{0}+\Delta_{0}(\varepsilon)$, the Green's function is trivial
+
+\begin{equation}
+G_{0,0}^{R}(\varepsilon)=\frac{1}{\varepsilon-\widetilde{E}_{0}+i\left({ }^{L} \Gamma_{0}+{ }^{R} \Gamma_{0}+{ }^{\phi} \Gamma_{0}\right)} .
+\end{equation}
+
+By taking the $\Gamma$ 's independent on $\varepsilon$ in the range of interest, we get the ``broad-band'' limit. We drop unneeded indices and arguments for the time being. From this Green's function all the transmission coefficients can be evaluated at the Fermi energy
+
+\begin{eqnarray}
+T_{R, L} & =4^{R} \Gamma\left|G_{0,0}\right|^{2}{ }^{L} \Gamma,  \\
+T_{\phi, L} f & =4^{\phi} \Gamma\left|G_{0,0}\right|^{2}{ }^{L} \Gamma,\nonumber \\
+T_{R, \phi} f & =4^{R} \Gamma\left|G_{0,0}\right|^{2}{ }^{\phi} \Gamma .\nonumber
+\end{eqnarray}
+
+From the energy dependent transmittance we obtain the total transmittance
+
+\begin{eqnarray}
+T_{R, L}(\varepsilon)&=&4^{R} \Gamma \frac{1}{\left(\varepsilon-\widetilde{E}_{0}\right)^{2}+\left({ }^{L} \Gamma+{ }^{R} \Gamma+{ }^{\phi} \Gamma\right)^{2}} \nonumber\\
+&&\times{ }^{L} \Gamma\left\{1-\frac{{ }^{\phi} \Gamma}{{ }^{L} \Gamma+{ }^{R} \Gamma}\right\} . 
+\end{eqnarray}
+
+The first term in the curly bracket is the coherent contribution while the second is the incoherent one. We notice that the effect of the decoherence processes is to lower the value of the resonance from its original one in a factor
+
+\begin{equation}
+\frac{\left({ }^{L} \Gamma+{ }^{R} \Gamma\right)}{\left({ }^{L} \Gamma+{ }^{R} \Gamma+{ }^{\phi} \Gamma\right)}.
+\end{equation}
+
+In compensation, transmission at the resonance tails becomes increased.
+
+It is interesting to note that if the resonant level lies between $\mu_{o}+e V$ and $\mu_{o}$ and provided that the voltage drop $e V$ is greater than the resonance width $\left({ }^{L} \Gamma+{ }^{R} \Gamma+{ }^{\phi} \Gamma\right)$, we take $T_{R, L}(\varepsilon, e V) \simeq T_{R, L}(\varepsilon)$ and we can easily compute the nonlinear response. Notably, one gets that the total current does not change as compared with that in absence of decoherent processes, i.e.
+
+\begin{eqnarray}
+    I \frac{h}{2 e} & =&\int_{\mu_{o}}^{\mu_{o}+e V} \widetilde{T}_{R, L}(\varepsilon) d \varepsilon \nonumber \\
+&& =\int_{\mu_{o}}^{\mu_{o}+e V} T_{R, L}^{o}(\varepsilon) d \varepsilon \nonumber\\
+& &=4 \pi^{R} \Gamma \frac{1}{\left({ }^{L} \Gamma+{ }^{R} \Gamma\right)}{ }^{L} \Gamma. 
+\end{eqnarray}
+
+Thus, in this extreme quantum regime, the decoherence processes do not affect the overall transport.
+
+In spite of the complexity of the general problem of decoherence in mesoscopic systems we extract an important lesson from the case of resonant tunneling with decoherence solved above within the DP model. The inclusion of external degrees of freedom has three effects
+
+\begin{enumerate}
+  \item It broadens the resonance relaxing energy conservation.
+  \item The integrated intensity of the elastic (coherent) peak is decreased.
+  \item The inelastic contribution came out to compensate this loss and maintains the value of the total transmittance integrated over energy.
+  \item Taking this system as representative of those whose spectra are strongly quantized, i.e. with well defined, isolated resonances, one may state that these systems are quite stable against decoherence.
+\end{enumerate}

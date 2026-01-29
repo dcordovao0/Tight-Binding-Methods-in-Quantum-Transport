@@ -1,0 +1,170 @@
+\section*{4. The Fisher and Lee formula}
+The original demonstration \cite{Fisher1981} of the connection between transmittance and Green's function is based on properties of the scattering matrix in the continuum model. It is also presented in a simplified form in the book by Datta \cite{Datta1995}. Here we are going to present the main lines of a demonstration based on properties of a molecular orbital model in its decimated tight binding version.
+
+\begin{widetext}
+    The isolated sample can be decimated into two sites getting an exact non-linear effective Hamiltonian:
+
+\begin{equation}
+\hat{\mathcal{H}}_{0}=E_{1}|1\rangle\langle 1|+E_{N}|N\rangle\langle N|+V_{1, N}|1\rangle\langle N|+V_{N, 1}|N\rangle\langle 1|,
+\end{equation}
+
+where the parameters $E$ and $V$ are functions of the variable $\varepsilon$.\\
+We attach electrodes or leads at each site. Both leads are perfect semi-infinite 1-d chains where the dispersion relations are
+
+\begin{equation}
+E_{k L}=E_{L}+2 V_{L} \cos \left(k_{L} a\right), 
+\end{equation}
+
+from which the group velocity is
+
+\begin{equation}
+\label{eq:tra}
+v_{L}=\dfrac{1}{\hbar} \dfrac{\partial E_{k L}}{\partial k_{L}}=-\dfrac{2 a V_{L}}{\hbar} \sin \left(k_{L} a\right) . 
+\end{equation}
+
+Analogous relations for $E_{k R}$ and $v_{R}$ hold in the right channel. When the perturbation
+
+\begin{equation}
+\hat{\mathcal{H}}_{0-\text {leads}}=V_{t L}(|1\rangle\langle 0|+|0\rangle\langle 1|)+V_{t R}(|N\rangle\langle N+1|+|N+1\rangle\langle N|)
+\end{equation}
+
+is turned on, we give an ansatz for the new single particle eigenfunctions components
+
+\begin{equation}
+\label{eq:ansatz}
+    u_{k}(a n)= \begin{cases}e^{ikna }+r e^{- ikna} & \text { if } n \leq 0, \quad(n a \in L),  \\ A & \text { if } n=1, \\ B & \text { if } n=N, \\ t e^{ikna} & \text { if } n \geq N+1, \quad(n a \in R),\end{cases}
+\end{equation}
+
+which are determined from the stationary Schrödinger equation $(\varepsilon \hat{\mathcal{I}}-\hat{\mathcal{H}})|\psi\rangle=0$. 
+\end{widetext}
+
+We have only four non trivial terms which contain either $A$ or $B$. To solve the Schrödinger equation, we remember Eq.~\eqref{eq:discrete}:
+\begin{equation*}
+    \varepsilon u_n=E_nu_n+V_{n,n-1}u_{n-1}+V_{n,n+1}u_{n+1}.
+\end{equation*}
+
+For the left lead, i.e., the site $n=0$ we have
+\begin{equation}
+    E_{kL}u_0=E_Lu_0+V_Lu_{-1}+V_{tL}u_1.
+\end{equation}
+
+Using the ansatz Eq.~\eqref{eq:ansatz}, and 
+\begin{equation}
+    E_{kL}-E_L=V_L(e^{ik_La}+e^{-ik_La}),
+\end{equation}
+
+we have
+
+\begin{equation}
+    A=\frac{V_L}{V_{tL}}(e^{ik_La}+re^{-ik_La})
+\end{equation}
+
+We do the same for the right lead, site $n=N+1$ to obtain 
+\begin{equation}
+    B=\frac{V_R}{V_{tR}}te^{iNk_La}.
+\end{equation}
+Now, for the sites $n=1$ and $n=N$ we obtain, respectively
+\begin{eqnarray}
+    ( E_{kL}-E_1)A-V_{1,N}B-V_{tL}(1+r)=0,\\
+    ( E_{kL}-E_N)B-V_{N,1}A-V_{tR}te^{i(N+1)ka}=0.
+\end{eqnarray}
+
+We replace the values of $A,B$ in the previous expressions and solve for $t$ to obtain
+\begin{equation}
+    t=\frac{2i V_{1N}}{d}\left(\frac{V_{tL}}{V_L}\right)\left(\frac{V_{tR}}{V_R}\right)\sin(k_La)
+\end{equation}
+where
+\begin{widetext}
+\begin{align*}
+    d&=\left[\varepsilon-E_{1}-\left|\dfrac{V_{t L}}{V_{L}}\right|^{2}\left\{\left|V_{L}\right|\cos \left(k_{L} a\right)-i\left|V_{L}\right| \sin \left(k_{L} a\right)\right\}\right]\left[\varepsilon-E_{N}-\left|\dfrac{V_{t R}}{V_{R}}\right|^{2}\left\{\left|V_{R}\right| \cos \left(k_{R} a\right)-i\left|V_{R}\right| \sin \left(k_{R} a\right)\right\}\right]\\
+    &\quad -\left[V_{1, N} V_{N, 1}\right].
+\end{align*}
+
+Finally, we use \eqref{eq:tra} together with
+
+\begin{equation}
+    T_{R, L}=1-r^{*} r=\frac{v_R}{v_L}t^*t
+\end{equation}
+
+to finally obtain the transmission formula
+\begin{equation}
+T_{R, L}=1-r^{*} r=4\left|\dfrac{V_{t L}}{V_{L}}\right|^{2}\left[\left|V_{L}\right| \sin \left(k_{L} a\right)\right]\left|V_{1, N}\right|^{2}\left|\dfrac{V_{t R}}{V_{R}}\right|^{2} \dfrac{\left[\left|V_{R}\right| \sin \left(k_{R} a\right)\right]}{\left[d d^{*}\right]}, 
+\end{equation}
+
+\end{widetext}
+
+In order to compare this with the Green's function we remember that the effective site energies include the self-energies produced by the leads
+
+\begin{eqnarray}
+{ }^{L} \Sigma_{1} & =&\left|\dfrac{V_{t L}}{V_{L}}\right|^{2}\left[\left|V_{L}\right| \cos \left(k_{L} a\right)-i\left|V_{L}\right| \sin \left(k_{L} a\right)\right] \\
+&& ={ }^{L} \Delta_{1}-i^{L} \Gamma_{1},\nonumber
+\end{eqnarray}
+
+and
+
+\begin{eqnarray}
+{ }^{R} \Sigma_{1} & =\left|\dfrac{V_{t R}}{V_{R}}\right|^{2}\left[\left|V_{R}\right| \cos \left(k_{R} a\right)-i\left|V_{R}\right| \sin \left(k_{R} a\right)\right]\\
+& ={ }^{R} \Delta_{N}-i^{R} \Gamma_{N} .\nonumber
+\end{eqnarray}
+
+If the lead variables are decimated they produce an effective potential of the form
+
+\begin{equation*}
+\hat{\mathcal{H}}_{\text {eff. }}=\hat{\mathcal{H}}_{0}+{ }^{L} \Sigma_{1}|1\rangle\langle 1|+{ }^{R} \Sigma_{N}|N\rangle\langle N| .
+\end{equation*}
+
+This maintains the structure of an effective two site Hamiltonian. From this it is simple to compute the four components of the exact Green's function of the system
+
+\begin{equation}
+G_{1, N}^{R}=\langle 1|\left[\varepsilon \hat{\mathcal{I}}-\hat{\mathcal{H}}_{\mathrm{eff}}\right]^{-1}|N\rangle
+\end{equation}
+
+\begin{equation*}
+    =\dfrac{V_{1, N}}{\left[\varepsilon-\left(E_{1}+{ }^{L} \Sigma_{1}^{R}\right)\right]\left[\varepsilon-\left(E_{N}+{ }^{R} \Sigma_{N}^{R}\right)\right]-V_{1, N} V_{N, 1}},
+\end{equation*}
+
+obtaining the Fisher-Lee formula
+
+\begin{equation}
+\label{eq:filee}
+T_{R, L}(\varepsilon)=\left(\dfrac{\hbar}{a}\right)^{2} v_{R} v_{L} G_{R, L}^{R}(\varepsilon) G_{L, R}^{A}(\varepsilon).
+\end{equation}
+
+Originally, Fisher and Lee considered only the escape velocity to the leads (i.e. $\alpha=\beta=$ lead). D'Amato and Pastawski \cite{DAmato1990} were the first to realize that because of Eq.~\eqref{eq:tra} one could write transmittances in terms of the imaginary part of the self energies. Immediately, our point is that any other process which contributes to decay giving an imaginary contribution to the self-energy would be described by Eq.~\eqref{eq:filee}. In particular, this will be true for a ``decoherence'' velocity as would be the case of the electron-phonon rate described in the previous section. In a modern notation:
+
+\begin{eqnarray}
+\label{eq:TaR}
+& T&_{\alpha R, \beta L}(\varepsilon)= \nonumber\\
+&& \quad\left[2^{\alpha} \Gamma_{R}(\varepsilon)\right] G_{\alpha R, \beta L}^{R}(\varepsilon)\left[2^{\beta} \Gamma_{L}(\varepsilon)\right] G_{\beta L, \alpha R}^{A}(\varepsilon) . 
+\end{eqnarray}
+
+The left supra-index in $\Gamma$ indicates the process or channel associated to the electron decay from the spatial region identified with the right subindex. Both indices appear as subindices in the Green's function. Notice that ${ }^{\beta} \Gamma_{L}(\varepsilon)$, which corresponds to the interaction with the ``source'' of particles, was arranged between two Green's functions. ${ }^{\alpha} \Gamma_{R}(\varepsilon)$, representing the properties of the ``sink'', was placed at left. This order is important in the matrix representation.
+
+\subsection*{4.1. An example: branched circuit}
+In order to apply the Fisher-Lee formula to a simple but highly non-trivial example, let us consider again the circuit with $z$ equivalent branches. One might think that a plane wave incoming at the node from one of the branches will have a probability $1 /(z-1)$ to be transmitted to each of the others, i.e. that it will behave as a perfect $(z-1)$-splitter. The true answer comes from the quantum evaluation giving
+
+
+\begin{equation}
+T=\dfrac{4}{z^{2}} \dfrac{1}{1+\left(\dfrac{2-z}{z}\right)^{2} \dfrac{\left(\varepsilon-E_{0}\right)^{2}}{(4 V)^{2}-\left(\varepsilon-E_{0}\right)^{2}}}. 
+\end{equation}
+
+$T$ has a maximum of $4 / z^{2}$, lower than the classical value. Additionally, the transmittance goes to zero as the energy approaches the band edge. This is due to the presence of the localized state found in Eq.~\eqref{eq:lst} which precludes the occupation of the branching region by the propagating states.
+
+\subsection*{4.2. An extension: the multichannel case}
+In fact, one can see that it is not difficult to generalize Eq.~\eqref{eq:GRL} to any number of incoming and outgoing channels connected to their respective reservoirs. When the two wires L and R have finite cross section, each wire contains an integer number, ${ }^{L} M_{\left(\varepsilon_{F}\right)}$ and ${ }^{R} M_{\left(\varepsilon_{F}\right)}$, of propagating (onedimensional) channels (i.e. transversal modes) allowed by the Fermi energy. Each electronic excitation leaving the wire $L$ in the propagating channel $i$ with velocity $v_{L i} \neq 0$, enters the wire $R$ in the propagating channel $j$ with velocity $v_{R j} \neq 0$.
+
+The conductance in the linear response regime is
+
+\begin{equation}
+\label{eq:GRL LR}
+G_{R, L}=\dfrac{e^{2}}{h} \sum_{\alpha \in L}^{L_{M}} \sum_{\beta \in R}^{R_{M}} T_{\beta, \alpha}.
+\end{equation}
+
+
+This can be written by combining Eqs.~\eqref{eq:TaR}and \eqref{eq:GRL LR} into a compact matrix notation:
+
+\begin{equation}
+G_{R, L}=\dfrac{e^{2}}{h} 4 \operatorname{Tr}\left[\boldsymbol{\Gamma}_{R}(\varepsilon) \mathbf{G}_{R, L}^{R}(\varepsilon) \boldsymbol{\Gamma}_{L}(\varepsilon) \mathbf{G}_{L, R}^{A}(\varepsilon)\right]. 
+\end{equation}
+
+The sum of initial states at left is the result of the product of the diagonal form of the broadening matrix $\Gamma_{L}(\varepsilon)$, while the trace corresponds to the sum over final states.

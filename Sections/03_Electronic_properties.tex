@@ -1,0 +1,675 @@
+\section*{3. Electronic properties through real space renormalization group procedures}
+\subsection*{3.1. Origin of the tight-binding model}
+The first thing we want to point out is that tight binding models, although naturally associated with linear combination of atomic orbitals (LCAO) can also be obtained as a convenient approximation to the Schrödinger equation written in terms of the continuous coordinate $x$
+
+
+\begin{equation}
+\label{eq:sch}
+-\dfrac{\hbar^{2}}{2 m} \nabla^{2} \psi(x)+U(x) \psi(x)=\varepsilon \psi(x). 
+\end{equation}
+
+
+We can discretize this equation obtaining a finite differences approach
+
+\begin{widetext}
+\begin{equation}
+-\dfrac{\hbar^{2}}{2 m} \dfrac{\displaystyle\dfrac{\psi(x+\Delta x)-\psi(x)}{\Delta x}-\displaystyle\dfrac{\psi(x)-\psi(x-\Delta x)}{\Delta x}}{\Delta x}+U(x) \psi(x)=\varepsilon \psi(x). 
+\end{equation}
+\end{widetext}
+
+If we do the identifications
+
+
+\begin{eqnarray}
+& \Delta x=a ; \quad x=n a ; \quad u_{n}=\psi(n a) \nonumber \\ 
+& E_{n}=U\left(x_{n}\right) ; \quad V=\dfrac{\hbar^{2}}{2 m a^{2}};
+\end{eqnarray}
+
+
+we obtain:
+
+\begin{equation*}
+    \left(\varepsilon-E_{n}-2\right) u_{n}+V u_{n+1}+V u_{n-1}=0.
+\end{equation*}
+
+Finally, with the identifications
+
+\begin{equation*}
+    E_n'=E_n+2;\quad V'=-V,
+\end{equation*}
+
+we get the final equation
+
+\begin{equation}
+\label{eq:discrete}
+\left(\varepsilon-E_{n}'\right) u_{n}-V' u_{n+1}-V' u_{n-1}=0. 
+\end{equation}
+
+
+Therefore, one is left with a discrete equation where the interaction is provided by the kinetic energy terms $V$ which is usually short ranged. The local potential energy term is given\\
+by $E_{n}$ and, in the LCAO description, it can be identified with the energies of atomic orbitals.
+
+The above relation can be used in a ``reversible'' way since there are situations where calculations in the continuum are simpler, as occurs in the semiclassical limit when the WKB approsimation substantially simplify the problem.
+
+Indeed, when the discretization is done at a scale much smaller than the typical atomic scale $\Delta x \ll a_{0}$ one can reach the molecular scale of the LCAO by a progressive use of the procedure that is discussed in the following paragraph. For the moment, we consider the tight binding Hamiltonian:
+
+\begin{widetext}
+\begin{equation}
+\label{eq:ham}
+\hat{\mathcal{H}}=\sum_{n} E_{n}|n\rangle\langle n|+V_{n, n+1}|n\rangle\langle n+1|+V_{n+1, n}|n+1\rangle\langle n| 
+\end{equation}
+
+
+with $\langle n \mid \psi\rangle=u_{n}, E_{n} \equiv E_{o}$ and $V_{n, n+1}=-V$, from which the Schrödinger  Eqs.~\eqref{eq:ham} takes the matrix form using $H_{mn}=\langle m |\hat{\mathcal{H}}|n\rangle$
+
+\begin{equation}
+    \varepsilon\left(\begin{array}{c}
+\vdots  \\
+u_{n-1} \\
+u_{n} \\
+u_{n+1} \\
+\vdots
+\end{array}\right)-\left(\begin{array}{ccccc}
+\ddots & & & & \\
+& E_{n-1} & V_{n-1, n} & 0 & \\
+& V_{n, n-1} & E_{n} & V_{n, n+1} & \\
+& 0 & V_{n+1, n} & E_{n+1} & \ddots \\
+& & & & \ddots
+\end{array}\right)\left(\begin{array}{c}
+\vdots \\
+u_{n-1} \\
+u_{n} \\
+u_{n+1} \\
+\vdots
+\end{array}\right)=(\varepsilon \mathbf{I}-\mathbf{H}) \vec{u}=\vec{0}.
+\end{equation}
+
+\end{widetext}
+
+When the site energies are taken from a random distribution in the range $[-W / 2, W / 2]$ the Hamiltonian is referred to as the Anderson model and it is the standard model to represent disordered systems.
+
+In a general situation of a LCAO problem, $E_{n}$ corresponds to any of the specific atomic orbitals used for each atom and the interactions parameters might not be restricted to first neighbors complicating the topology of the interaction network.
+
+\subsection*{3.2. Effective Hamiltonians and Green's functions}
+Let's see how to construct a progressive solution of this problem \cite{Levstein1990} using the ideas of the real space renormalization group \cite{Lowdin1951,ProjectionTechniques1981}.
+
+The simplest case is the two site problem
+
+\begin{equation}
+    \varepsilon\binom{u_{1}}{u_{2}}-\left(\begin{array}{cc}
+E_{1} & V_{1,2}  \\
+V_{2,1} & E_{2}
+\end{array}\right)\binom{u_{1}}{u_{2}}=0,
+\end{equation}
+
+whose energy spectrum is obtained from the secular equation
+
+\begin{equation}
+\operatorname{det}|\varepsilon \mathbf{I}-\mathbf{H}|=0, 
+\end{equation}
+
+with eigenvalues
+
+\begin{equation}
+E_{ \pm}=\left(\dfrac{E_{1}+E_{2}}{2}\right) \pm \sqrt{\left(\dfrac{E_{1}-E_{2}}{2}\right)^{2}+V_{1,2} V_{2,1}} .
+\end{equation}
+
+
+An alternative procedure is to write the linear equation explicitly
+
+\begin{subequations}
+    \begin{eqnarray}
+& E_{1} u_{1}+V_{1,2} u_{2}=\varepsilon u_{1},  \label{eq:e1}\\
+& V_{2,1} u_{1}+E_{2} u_{2}=\varepsilon u_{2}. \label{eq:e2}
+\end{eqnarray}
+\end{subequations}
+
+From Eq.~\eqref{eq:e2}, $u_{2}=V_{2,1}\left(1 / \varepsilon-E_{2}\right) u_{1}$, and substituting in Eq.~\eqref{eq:e1}:
+
+
+\begin{equation}
+\left(E_{1}+V_{1,2} \dfrac{1}{\varepsilon-E_{2}} V_{2,1}\right) u_{1}=\varepsilon u_{1}. 
+\end{equation}
+
+
+The eigenvalue is obtained from the condition
+
+
+\begin{equation}
+\varepsilon-(E_{1}+\underbrace{V_{1,2} \dfrac{1}{\varepsilon-E_{2}} V_{2,1}}_{\Delta_{1}(\varepsilon)})=0. 
+\end{equation}
+
+
+The reader can check that both exact eigenenergies, can be obtained from this equation. The second term in the parenthesis has a clear physical meaning if it is identified with an ``effective potential'' $\Delta_{1}(\varepsilon)=\left|V_{1,2}\right|^{2} /\left(\varepsilon-E_{2}\right)$ which corrects the non-interacting energy $E_{1}$ of the site as
+
+
+\begin{equation}
+\widetilde{E}_{1}=E_{1}+\Delta_{1}(\varepsilon). 
+\end{equation}
+
+
+For an asymmetric case, $\left|E_{1}-E_{2}\right|>\left|V_{1,2}\right|$, one can obtain a good approximation to the corrected site energies, by doing the evaluation at the old eigenvalue:
+
+
+\begin{equation}
+\label{eq:lineal}
+\tilde{E}_{1} \simeq E_{1}+\Delta_{1}\left(E_{1}\right),
+\end{equation}
+
+
+which becomes equivalent to the second order Rayleigh-Schrödinger perturbation theory. That is, as shown in Fig.~\ref{fig:3}, we have gone from the two orbital problem to a single effective orbital with a ``dressed energy''.
+
+\subsection*{3.3. The decimation method}
+The preceding paragraphs have introduced the basic tools by noting that the presence of other sites has the effect of shifting or splitting the energies of the site we are looking at. Let us see another example, a Hamiltonian with three sites:
+
+\begin{equation}
+    \left(\begin{array}{ccc}
+E_{1} & V_{1,2} & V_{1,3}  \\
+V_{2,1} & E_{2} & V_{2,3} \\
+V_{3,1} & V_{3,2} & E_{3}
+\end{array}\right)\left(\begin{array}{l}
+u_{1} \\
+u_{2} \\
+u_{3}
+\end{array}\right)=\varepsilon\left(\begin{array}{l}
+u_{1} \\
+u_{2} \\
+u_{3},
+\end{array}\right)
+\end{equation}
+
+where we have included second neighbor overlaps. The idea is to reduce this set of three linear equations to a smaller problem as shown in Fig. 4. There are many situations where the physics and chemistry indicates that this is a physically meaningful model. We obtain the value of $u_{2}$ from the second row above
+
+\begin{equation}
+u_{2}=\dfrac{V_{2,1}}{\varepsilon-E_{2}} u_{1}+\dfrac{V_{2,3}}{\varepsilon-E_{2}} u_{3},
+\end{equation}
+
+and introduce it into the first and third row to obtain two coupled non-linear equations:
+
+\begin{equation}
+    \left(\begin{array}{cc}
+\widetilde{E}_{1} & \widetilde{V}_{1,3} \\
+\widetilde{V}_{3,1} & \widetilde{E}_{3}
+\end{array}\right)\binom{u_{1}}{u_{3}}=\varepsilon\binom{u_{1}}{u_{3}}
+\end{equation}
+
+where
+
+\begin{eqnarray}
+\widetilde{E}_{1}(\varepsilon)&=&E_{1}+V_{1,2} \dfrac{1}{\varepsilon-E_{2}} V_{2,1}, \nonumber \\
+\widetilde{E}_{3}(\varepsilon)&=&E_{3}+V_{3,2} \dfrac{1}{\varepsilon-E_{2}} V_{2,3}, \label{eq:25} \\
+\widetilde{V}_{1,3}&=&V_{1,3}+V_{1,2} \dfrac{1}{\varepsilon-E_{2}} V_{2,3}, \nonumber
+\end{eqnarray}
+
+and the notation is self-explanatory.
+\begin{figure}[ht]
+  \includegraphics[width=0.95\columnwidth]{Figures/03_SEC.pdf}
+\caption{Construction of the self-energy correction.}
+\label{fig:3}
+\end{figure}
+
+\begin{figure}[ht]
+  \includegraphics[width=0.95\columnwidth]{Figures/04_EHD.pdf}
+\caption{ Construction of an effective Hamiltonian through decimation.}
+\label{fig:4}
+\end{figure}
+Therefore, the procedure of elimination of variables is very general and can exhaust the degrees of freedom of the finite system, providing a systematic way to reduce the dimension of the Hamiltonian. This is done at the cost of transforming the linear equation into a non-linear one which, however, can often be linearized in the region of interest as in Eq.~\eqref{eq:lineal}. The general recipe valid for a string of interacting atoms requires the calculation of:
+
+\begin{itemize}
+  \item $\Delta_{1(n)}^{+}$, the energy correction to the $1^{\text {st }}$ atom when sites until atom $n$, to the right (+) inclusive, are eliminated.
+  \item $\Delta_{n+1}^{-}(\varepsilon)$, the energy correction to atom $(n+1)$ when all the atoms at the left (-), except the $1^{\text {st }}$, have been eliminated.
+  \item $\widetilde{V}_{1, n+1}$, the effective interaction among layers.
+\end{itemize}
+
+We resort to the recursion formulas:
+
+\begin{eqnarray}
+\Delta_{1(n)}^{+}(\varepsilon) & =&\Delta_{1(n-1)}^{+}+\widetilde{V}_{1, n} \dfrac{1}{\varepsilon-E_{n}-\Delta_{n}^{-}} \widetilde{V}_{n, 1},\\
+\Delta_{n+1}^{-}(\varepsilon) & =&V_{n+1, n} \dfrac{1}{\varepsilon-E_{n}-\Delta_{n}^{-}} V_{n, n+1},\\
+\widetilde{V}_{1, n+1} & =&\widetilde{V}_{1, n} \dfrac{1}{\varepsilon-E_{n}-\Delta_{n}^{-}} V_{n, n+1}+V_{1, n+1}.
+\end{eqnarray}
+
+
+Notice that we have not restricted the iterations to nearest neighbors. From the point of view of the perturbation theory, it can be checked that the decimation procedure is equivalent to an exact summation of all the perturbation orders of the Wigner-Brillouin series and hence equivalent to the inclusion of all Feynman paths that start at layer 0 and end at layer $N+1$. This will be best viewed in the language of the Green's function described in the next subsection.
+
+\subsection*{3.4. Effective Hamiltonians and Green's functions}
+The Green's function provides an alternative framework to discuss the solutions of the Schrödinger equation. Besides the intuitive structure of the perturbative calculations in terms of Feynman diagrams \cite{Mattuck1976}, they have the additional advantage of a clear connection to transport properties, and finally a special role in the Quantum Field Theory which allows a definitive treatment of the many-body problems.
+
+The retarded (advanced) Green's functions matrix is defined as a function of the complex variable ( $\varepsilon \pm i \eta$ ) in the upper (lower) complex plane
+
+
+\begin{equation}
+\label{eq:advgreen}
+\mathbf{G}^{R(A)}(\varepsilon)=[(\varepsilon \pm \mathrm{i} \eta) \mathbf{I}-\mathbf{ht}]^{-1}. 
+\end{equation}
+
+
+Let's evaluate a diagonal element:
+
+
+\begin{eqnarray}
+G_{1,1}^{R}(\varepsilon+\mathrm{i} \eta) & =\dfrac{1}{\varepsilon+\mathrm{i} \eta-E_{1}-\underbrace{V_{1,2} \dfrac{1}{\varepsilon+\mathrm{i} \eta-E_{2}} V_{1,2}}_{\Sigma_{1}^{R}=\Delta_{1}-\mathrm{i} \Gamma_{1}}} \nonumber \\
+& =\dfrac{1}{\varepsilon+\mathrm{i} \eta-\widetilde{E}_{1}}. \label{eq:green1}
+\end{eqnarray}
+
+
+Therefore the renormalized site energy is as before
+
+
+\begin{equation}
+\widetilde{E}_{1}=E_{1}+\underbrace{V_{1,2} \dfrac{1}{\varepsilon+\mathrm{i} \eta-E_{2}} V_{2,1}}_{\Sigma_{1}^{R}=\Delta_{1}-\mathrm{i} \Gamma_{1}}. 
+\end{equation}
+
+
+The local densities of states, which represents the weight of the exact eigenenergies on the old states is: which we can check for our simple two state model:
+
+
+\begin{eqnarray}
+N_{1}(\varepsilon)= & \left|u_{1,+}\right|^{2} \delta\left(\varepsilon-E_{+}\right)+\left|u_{1,-}\right|^{2} \delta\left(\varepsilon-E_{-}\right)\label{eq:loden}\\
+= & \lim _{\eta \rightarrow 0}\left\{\left|u_{1,+}\right|^{2} \dfrac{1}{\pi} \dfrac{\eta}{\left(\varepsilon-E_{+}\right)^{2}+\eta^{2}}\right. \nonumber\\
+& \left.\quad+\left|u_{1,-}\right|^{2} \dfrac{1}{\pi} \dfrac{\eta}{\left(\varepsilon-E_{-}\right)^{2}+\eta^{2}}\right\}, 
+\end{eqnarray}
+
+
+where $\delta\left(\varepsilon-E_{ \pm}\right)$are the Dirac delta functions at $E_{ \pm}= \dfrac{1}{2}\left[\left(E_{1}+E_{2}\right) \pm \hbar \omega\right]$, with $\hbar \omega=\sqrt{\left(E_{1}-E_{2}\right)^{2}+4\left|V_{1,2}\right|^{2}}$. The eigenstates are $|+\rangle=u_{1,+}|1\rangle+u_{2,+}|2\rangle$ and $|-\rangle= u_{1,-}|1\rangle+u_{2,-}|2\rangle$. The coefficients are obtained by solving the secular equation (15) for $u_1$, then evaluate $|u_1|^2$ with $E_{\pm}$ and for $u_2$ we use the normalization equation $|u_1|^2+|u_2|^2=1$. We are left with the coefficients 
+
+
+\begin{eqnarray}
+& u_{1, \pm}=\left[\dfrac{1}{2}\left(1 \pm \dfrac{E_{1}-E_{2}}{\hbar \omega}\right)\right]^{1 / 2},\\
+& u_{2, \pm}= \left[\dfrac{1}{2}\left(1 \mp \dfrac{E_{1}-E_{2}}{\hbar \omega}\right)\right]^{1 / 2}. 
+\end{eqnarray}
+
+
+An immediate advantage of the Green's function formalism is that although it is obtained through a finite number of algebraic operations (matrix inversion) it contains information on both the eigenenergies and eigenfunctions which involve the transcendental operation of finding the roots of a polynomial.
+
+In particular, any eigenvector component is obtained from the generalization of Eq.~\eqref{eq:loden} which results:
+
+\begin{equation}
+\label{eq:DoS}
+N_{i}(\varepsilon)=-\dfrac{1}{\pi} \lim _{\eta \rightarrow 0} \operatorname{Im} G_{i, i}^{R}(\varepsilon+\mathrm{i} \eta). 
+\end{equation}
+
+The connection with the infinite order perturbation theory is immediate just expressing the denominator in Eq.~\eqref{eq:green1} through its series expansion
+
+\begin{eqnarray}
+G_{1,1}^{R}(\varepsilon) &=& \dfrac{1}{\varepsilon + i \eta - E_1 - V_{1,2} \dfrac{1}{\varepsilon + i \eta - E_2} V_{2,1}}\\
+&&= \dfrac{1}{\left[G_{1,1}^{(0)R}(\varepsilon)\right]^{-1} - V_{1,2} G_{2,2}^{(0)R}(\varepsilon) V_{2,1}}\\
+&=& G_{1,1}^{(0)R}(\varepsilon) \dfrac{1}{1 - G_{1,1}^{(0)R}(\varepsilon) V_{1,2} G_{2,2}^{(0)R}(\varepsilon) V_{2,1}} \\
+&=& G_{1,1}^{(0)R}(\varepsilon)\Bigg[\sum_{n=0}^\infty \left(G_{1,1}^{(0)R}(\varepsilon) V_{1,2} G_{2,2}^{(0)R}(\varepsilon) V_{2,1}\right)^n \Bigg]\nonumber\\
+&=& G_{1,1}^{(0)R}(\varepsilon) + G_{1,1}^{(0)R}(\varepsilon) \Sigma_{1,1}(\varepsilon) G_{1,1}^{(0)R}(\varepsilon) \\
+&&\quad + G_{1,1}^{(0)R}(\varepsilon) \Sigma_{1,1}(\varepsilon) G_{1,1}^{(0)R}(\varepsilon) \Sigma_{1,1}(\varepsilon) G_{1,1}^{(0)R}(\varepsilon) \nonumber \\
+&&\quad + \cdots \nonumber \\
+&=& G_{1,1}^{(0)R}(\varepsilon) + G_{1,1}^{(0)R}(\varepsilon) \Sigma_{1,1}(\varepsilon) \nonumber \\
+&&\quad \left( 1 + G_{1,1}^{(0)R}(\varepsilon) \Sigma_{1,1}(\varepsilon) G_{1,1}^{(0)R}(\varepsilon) + \cdots \right) \nonumber \\
+&=& G_{1,1}^{(0)R}(\varepsilon) + G_{1,1}^{(0)R}(\varepsilon) \Sigma_{1,1}(\varepsilon) G_{1,1}^{R}(\varepsilon)
+\end{eqnarray}
+
+
+For the last expressions, we define the Dyson equation as $\Sigma_{1,1}(\varepsilon)=V_{1,2} G_{2,2}^{(0)R}(\varepsilon) V_{2,1}$ and use the definition of $G_{1,1}^R(\varepsilon)$. The series expansion is represented diagrammatically in Fig.~\ref{fig:5}.
+
+\begin{figure}[ht]
+  \includegraphics[width=0.95\columnwidth]{Figures/05_FD.pdf}
+\caption{Feynman diagrams in the tight-binding representation. Double and simple lines represent the exact and unperturbed Green's function respectively. Hopping interactions are represented by the dashed lines that modifies the indices of a Green's function. Two conjugate interactions are associated by the dot into a single rung.}
+\label{fig:5}
+\end{figure}
+
+In systems with a finite number, $N$, of states $G_{i, j}(\varepsilon)$ is a well behaved meromorphic function except at the $N$ poles. In this condition, it is satisfied that
+
+\begin{eqnarray}
+    \text { finite system }\left\{\begin{array}{l}
+\Gamma(\varepsilon)=-\operatorname{Im}[\Sigma(\varepsilon)] \equiv 0\\
+\Sigma(\varepsilon) \equiv \Delta(\varepsilon)=\operatorname{Re}[\Sigma(\varepsilon)]
+\end{array}\right.
+\end{eqnarray}
+
+Therefore, by considering real energies we can drop the su-pra-index that distinguish the retarded and advanced Green's function.
+
+Let us come back to the three site model. We may sum up the infinite perturbation series to obtain
+
+\begin{widetext}
+    \begin{equation}
+G_{1,1}(\varepsilon)=\dfrac{1}{\varepsilon-E_{1}-V_{1,2} \dfrac{1}{\varepsilon-E_{2}- V_{2,3} \dfrac{1}{\varepsilon-E_{3}} V_{3,2}} V_{2,1}-V_{1,3} \dfrac{1}{\varepsilon-E_{3}} V_{3,1}}, 
+\end{equation}
+\end{widetext}
+
+or equivalently use Eq.~\eqref{eq:25}to regrouping the terms into:
+
+\begin{equation}
+G_{1,1}(\varepsilon)=\dfrac{1}{\varepsilon-\widetilde{E}_{1}-\widetilde{V}_{1,3} \dfrac{1}{\varepsilon-\widetilde{E}_{3}} \widetilde{V}_{3,1}},
+\end{equation}
+which gives the obvious connection with the real space decimation procedure.
+
+Many other useful recursion formulas can be obtained by similar procedures. For example, in a system with states $\{0,1,2,3, \cdots N, N+1\}$, the effective hopping is related to the non-diagonal Green's function in the isolated bridge with states $\{1,2,3, \cdots N\}$,
+\begin{eqnarray}
+&\widetilde{V}&_{0, N+1} =\widetilde{V}_{0, N}\left[\varepsilon-\widetilde{E}_{N}\right]^{-1} V_{N, N+1} ,\label{eq:effhop}\\
+&&=V_{0,1}  \left\{G_{1, N-1} V_{N-1, N}\left[\varepsilon-E_{N}-\Delta_{N}^{-}\right]^{-1}\right\} V_{N, N+1},\nonumber \\
+&& =V_{0,1}\left\{G_{1, N}\right\} V_{N, N+1}.
+\end{eqnarray}
+
+This equation is complemented with the ones for the self-energies from sites at right
+
+\begin{equation}
+\Delta_{0(N)}^{+}(\varepsilon)=V_{0,1} G_{1,1} V_{1,0}, 
+\end{equation}
+
+and at left
+
+\begin{equation}
+\Delta_{N+1(N)}^{-}(\varepsilon)=V_{N, N+1} G_{N, N} V_{N, N+1} . 
+\end{equation}
+
+One can then calculate by iteration of the non-diagonal Green's function in progressively bigger systems $\{0, \cdots N+2\}$, $\{0, \cdots N+3\}$, and so on, with an equation that is obtained equating the terms between brackets in Eq.~\eqref{eq:effhop}:
+
+
+\begin{equation}
+G_{1, N+1}^{(N+1)}=G_{1, N}^{(N)} V_{N, N+1} G_{N+1, N+1}^{(N+1)},
+\end{equation}
+
+which is used in conjunction with,
+
+\begin{equation}
+\label{eq:grexp}
+G_{N+1, N+1}^{(N+1)}=\left[\varepsilon I-E_{N+1}-V_{N+1, N} G_{N, N}^{(N)} V_{N+1, N}\right]^{-1},
+\end{equation}
+
+the continued fraction expansion of the diagonal Green's function.
+
+\subsection*{3.5. Going beyond one-dimensional systems}
+The decimation scheme can be generalized to any dimension as long as we proceed in a ``layer by layer'' elimination. Every site in the above procedure now becomes an $n \times n$ matrix where $n$ is the size of the layer. In Fig.\ref{fig:SD} we consider a square lattice of orbitals forming a strip. Remembering that $\operatorname{Im}[\Sigma] \equiv 0$ we write the general equation for the real self-energies. We proceed to eliminate one by one the layers from 1 to the $(N-1)$. Adopting the matrix notation $\Delta_{1(n)}^{+}(\varepsilon)$ is the self-energy correction to the $1^{\text {st }}$ layer when all layers (to the right) including the $n^{\text {th }}$ have been eliminated. $\Delta_{n+1}^{-}(\varepsilon)$ is the self-energy correction to layer $(n+1)$ when layers to the left have been eliminated. $\widetilde{\mathbf{V}}_{1, n+1}$ is the effective interaction between layers. These are again evaluated with the iterative procedure
+
+
+\begin{eqnarray}
+    \Delta_{1(n)}^{+}(\varepsilon) & =&\Delta_{1(n-1)}^{+}+\widetilde{\mathbf{V}}_{1, n} \dfrac{1}{\varepsilon \mathbf{I}-\mathbf{E}_{n}-\Delta_{n}^{-}} \widetilde{\mathbf{V}}_{n, 1},\\
+\Delta_{n+1}^{-}(\varepsilon) & =&\mathbf{V}_{n+1, n} \dfrac{1}{\varepsilon \mathbf{I}-\mathbf{E}_{n}-\Delta_{n}^{-}} \mathbf{V}_{n, n+1} ,\label{eq:seco}\\
+\widetilde{\mathbf{V}}_{1, n+1} & =&\widetilde{\mathbf{V}}_{1, n} \dfrac{1}{\varepsilon \mathbf{I}-\mathbf{E}_{n}-\Delta_{n}^{-}} \mathbf{V}_{n, n+1}+\mathbf{V}_{1, n+1},\label{eq:inl}
+\end{eqnarray}
+
+with the initial values:
+
+\begin{eqnarray}
+\Delta_{1}^{+(1)}(\varepsilon) & =&0, \nonumber\\
+\Delta_{2}^{-}(\varepsilon) & =&0,\\
+\widetilde{\mathbf{V}}_{1,2} & =&\mathbf{V}_{1,2} .\nonumber
+\end{eqnarray}
+
+\begin{figure}[ht]
+  \includegraphics[width=0.95\columnwidth]{Figures/06_SD.pdf}
+\caption{Scheme of decimation of a finite tight-binding strip. As the elimination of intermediate layers proceeds the effective site energies and interactions appear.}
+\label{fig:SD}
+\end{figure}
+
+The expression one has to evaluate are expressed as Matrix Continued Fractions, which are numerically very stable \cite{Pastawski1983}. Notice that the elimination of intermediate layers produces effective interaction among the sites in the first layer, i.e. it modifies the intra-layer interactions as prescribed by the nondiagonal elements of $\boldsymbol{\Delta}$. Inter-layer interactions are always contained in V. Again, the last term in Eq.~\eqref{eq:inl} allows the consideration of interactions going beyond nearest neighbor layers.
+
+\subsection*{3.6. Decimation in molecules}
+It is clear that the described procedure is very well suited for application to molecular systems \cite{Levstein1990,Mujica1994}. Just to fix ideas consider the $p_{z}$ orbitals in the carbon backbone of an organic molecule represented in Fig.~\ref{fig:DM}. Assume that we are interested in the study of how charge can be transferred from site L to site R , a typical problem in photosynthesis and molecular electronics. Circles represent the $\pi$ orbitals with given local energies, lines are hopping interactions which produce the electron delocalization. One might start decimating the dangling ends. Sites energies in the back-bone are then renormalized. Next, we identify the branching nodes and eliminate the bridging sites, this gives new site energies and an effective hopping. Finally one eliminates all the remaining bridging structure obtaining an effective two orbital molecule. Since the procedure is exact one obtains the exact spectrum independently of the election of these orbitals. However, in transport one wants to keep the atoms that have matrix elements that enable the transfer of charge with the ``external world''. This will become clearer later.
+
+\begin{figure}[ht]
+  \includegraphics[width=0.95\columnwidth]{Figures/07_DM.pdf}
+\caption{Sequence for the decimation of a molecule into an effective two site problem.}
+\label{fig:DM}
+\end{figure}
+
+The spectral and transport properties of model molecules are further discussed in Ref.~\onlinecite{Levstein1990}. Let us mention that the procedure allows to visualize a situation of maximum coupling when $\widetilde{E}_{L}=\widetilde{E}_{R}$ which is a resonant situation. This paper also discusses for the first time a situation of maximum decoupling which occurs when $\widetilde{V}_{L, R}=0$ and was named ``antiresonance'' or minimal effective decoupling of the centers. This phenomenon is caused by the interference between different pathways when energies of the pathway molecules lie between energies of the other. This generalizes, to the transport case, a concept introduced by Fano \cite{Fano1961} in ionization spectroscopy.
+
+\subsection*{3.7. Advantages of the decimation procedure}
+One might think that instead of decimating a particular structure one might invert $(\varepsilon \mathbf{I}-\mathbf{ht})$ directly. However, there are various advantages in favor of the decimation procedure explained above:
+\begin{enumerate}[label=\alph*)]
+    \item The scheme adapts naturally to increase the size of the system without having to recalculate the matrices again.
+    \item The sparse nature of the Hamiltonian is naturally included in the recursion formula saving storage memory and iteration steps.
+    \item The decimation scheme has implicit a deep physical insight of the system and reveals the self-similarities of the systems whenever those properties are present.
+    \item The resulting highly singular resolvent of a big system through matrix inversion is in general numerically unstable. In contrast, the decimation, is a numerically stable procedure. The natural instabilities of the system such as exponentially growing eigensolutions are explicitly used in favor of the convergence of the method. For further discussion on this issue see Ref.~\onlinecite{Levstein1990}. On this basis one establishes that Eq.~\eqref{eq:seco} which defines a Matrix Continued Fraction procedure is more accurate and stable than Eq.~\eqref{eq:grexp} which uses a different iteration procedure to calculate an equivalent magnitude.
+\end{enumerate}
+
+\subsection*{3.8. The thermodynamic limit: Dyson equation}
+We have seen that any finite Hamiltonian matrix of finite size can be solved through the decimation method obtaining a set of discrete eigenstates. One might wonder what happens when the number of orbita is actually infinite. How and when does the continuum spectrum appear? Let's come back to the one-dimensional model. The decimation procedure allows to deal with a simple but already non-trivial case: that of an ordered semi-infinite chain. In this situation: $V_{n, n+1}=V$ and $E_{n} \equiv E_{0}$ for every $n$. The Dyson equation is:
+
+
+\begin{equation}
+\Sigma_{n}=V \dfrac{1}{\varepsilon-E_{0}-\Sigma_{n+1}} V,
+\end{equation}
+
+
+and must include the simple fact that every site sees to the right an infinite chain: $\Sigma_{n} \equiv \Sigma$ for every $n$. That is a new way to present the Bloch theorem.
+
+
+\begin{equation}
+\label{eq:selfenergybloch}
+\Sigma=V \dfrac{1}{\varepsilon-E_{0}-\Sigma} V=\Delta \mp \mathrm{i} \Gamma.
+\end{equation}
+
+
+The striking fact is that even when we are working with real quantities the solution of this equation may lay in the complex plane \cite{Weisz1984}. There are two possibilities for the imaginary part. We call retarded self-energy to that which would cause a decay in the time evolution of the wave function amplitude. The solution of the second order equation gives:
+
+\begin{widetext}
+\begin{equation}
+    \Delta=\left\{\begin{array}{lll}
+\dfrac{\varepsilon-E_{0}}{2}-\sqrt{\left(\dfrac{\varepsilon-E_{0}}{2}\right)^{2}-V^{2}} & \text { if } & \varepsilon-E_{0}>2|V|,\\
+\dfrac{\varepsilon-E_{0}}{2} & \text { if } & \left|\varepsilon-E_{0}\right| \leq 2|V|, \\
+\dfrac{\varepsilon-E_{0}}{2}+\sqrt{\left(\dfrac{\varepsilon-E_{0}}{2}\right)^{2}-V^{2}} & \text { if } & \varepsilon-E_{0}<-2|V|.
+\end{array}\right.
+\end{equation}
+\end{widetext}
+
+and
+
+\begin{equation}
+\label{eq:Gammanonzero}
+    \Gamma= \begin{cases}0 & \text { if }\left|\varepsilon-E_{0}\right|>2|V|,  \\ \sqrt {V^{2}-\left(\dfrac{\varepsilon-E_{0}}{2}\right)^{2}} & \text { if }\left|\varepsilon-E_{0}\right| \leq 2|V| .\end{cases}
+\end{equation}
+
+
+We see that in the region were the Block solutions occur, i.e. when $\varepsilon=E_{k} \equiv E_{0}-2 V \cos (k a)$, is the region where the spectrum is absolutely continuous, one has $\Gamma(\varepsilon) \neq 0$. In the region of the real axis, the Green's functions indetermination represents a branch cut, and it becomes non-analytic at the spectral support. However, the infinite dimensionality of the Hilbert space is a necessary but not sufficient condition for the continuum spectrum. For example, for $1-\mathrm{d}$ systems with disorder in the site energies described by the Anderson model, the self-energies are always real even when the system is infinite i.e. there is genuine ``phase transition'' in the nature of the states when one goes from finite systems to infinite ones. In an infinite system, disorder can produce a localizedextended transition \cite{Kramer1993} first described by P.W. Anderson and commonly referred as metal-insulator transition (MIT). The thermodynamic limit that makes possible the study of such transition is to study the observable $\mathcal{O}$ (decay rate, density of states, etc.) in the limit
+
+\begin{equation}
+\lim _{\eta \rightarrow 0} \lim _{N \rightarrow \infty} \mathcal{O}. 
+\end{equation}
+
+The order of this limit was implicit when we searched for complex solutions for the Dyson equation by imposing the ``Bloch theorem''.
+
+We must remember that the MIT is not exclusive to the disordered systems. It is also of frequent occurrence in ordered systems under the action of incommensurate potentials \cite{Weisz1984}. For example a $1-\mathrm{d}$ systems where the site energy is of the form $E_{n}=W \cos [Q n a]$ with $2 \pi / Q$ incommensurate with the lattice length $a$ provided that $W>W_{c}=2 V$.
+
+\subsection*{3.9. Density of states in unbounded systems: crystals}
+In the case where the chain extends to both sides of site 0 one gets two contributions to the self energy correction. All diagonal terms of the Green's function are identical
+
+\begin{eqnarray}
+&&G_{0,0}^{R}  =\dfrac{1}{\varepsilon-E_{0}-2 \Sigma^{R}},\nonumber \\
+& &=\dfrac{1}{\varepsilon-E_{0}-2 \dfrac{\left(\varepsilon-E_{0}\right)-\mathrm{i} \sqrt{4 V^{2}-\left(\varepsilon-E_{0}\right)^{2}}}{2}}, 
+\end{eqnarray}
+
+from which the density of states per site (DoS) can be evaluated with Eq.~\eqref{eq:DoS},
+
+\begin{equation}
+N_{[d=1]}(\varepsilon)=\dfrac{1}{2 \pi V} \dfrac{1}{\sqrt{1-\left(\dfrac{\varepsilon-E_{0}}{2 V}\right)^{2}}},
+\end{equation}
+
+which has the characteristic van Hove singularities of one dimensional systems at the band edges.
+
+The fact that the imaginary part in the self-energy is associated to the ``irreversible decay'' of the state can be formalized by studying the Fourier transform of the Green's function to obtain the return probability
+
+\begin{eqnarray}
+P_{0,0}(t) & =&|\langle 0| \exp (-\mathrm{i} \mathcal{ht} t / \hbar)| 0\rangle\left.\right|^{2} \nonumber\\
+& =&\left|\int G_{0,0}^{R}(\varepsilon) \exp (-\mathrm{i} \varepsilon t / \hbar) d \varepsilon\right|^{2} \\
+& =&\left|J_{0}(t V / \hbar)\right|^{2} \sim \dfrac{1}{\pi}(t V / \hbar)^{-1} .\
+\end{eqnarray}
+
+
+where $J_{0}$ is the Bessel function. For long times, it represents an irreversible ``super-diffusion'', and hence differs substantially from a classical random walk process in an infinite chain.
+
+Densities of states in higher dimensions for hyper-cubic lattices can be obtained from those in one dimension by using the fact that variables are separable. This allows us to split the energy contributions of each dimension $E(\mathbf{k})= E_{0}+E\left(k_{x}\right)+E\left(k_{y}\right)+E\left(k_{z}\right)$, leading to a convolution expression for the DoS in dimension $\mathrm{d}=2$ 
+
+\begin{equation}
+N_{[2]}(\varepsilon)=\int N_{[1]}\left(\varepsilon-\varepsilon^{\prime}\right) N_{[1]}\left(\varepsilon^{\prime}\right) d \varepsilon^{\prime} 
+\end{equation}
+
+
+and in general
+
+
+\begin{equation}
+N_{[d+1]}(\varepsilon)=\int N_{[d]}\left(\varepsilon-\varepsilon^{\prime}\right) N_{[1]}\left(\varepsilon^{\prime}\right) d \varepsilon^{\prime}. 
+\end{equation}
+
+For example, in a square lattice we get
+
+\begin{equation}
+N_{[2]}(\varepsilon)=\dfrac{1}{2\pi^2 V} K\left[\sqrt{1-\left(\dfrac{\varepsilon-E_0}{4 V}\right)^{2}}\right], 
+\end{equation}
+%Previous expresion: N_{[2]}(\varepsilon)=\dfrac{1}{4} K\left[\sqrt{1-\left(\dfrac{\varepsilon}{2 V}\right)^{2}}\right], 
+
+
+where $K$ is the complete elliptic integral of the first kind. Fig.~\ref{fig:DS} show the qualitative features of these DoS. See Ref.~\onlinecite{Pastawski1987} for a more extended discussions on these points and plots of the DoS in higher dimensions.
+
+\begin{figure}[ht]
+  \includegraphics[width=0.95\columnwidth]{Figures/08_DS.pdf}
+\caption{Schematic Density of States in 1-d, 2-d and 3-d systems.}
+\label{fig:DS}
+\end{figure}
+
+Now that we know how to evaluate some basic selfenergies, we can calculate the Green's function in a great variety of model systems.
+
+\subsection*{3.10. Surfaces in a semi-infinite chain}
+Let us consider the semi-infinite chain $\{s, 1,2,3, \cdots\}$. The Green's function at the surface site is
+
+
+\begin{equation}
+G_{1,1}^{R}=\dfrac{1}{\varepsilon-E_{0}-\Sigma^{R}(\varepsilon)},
+\end{equation}
+
+where we have used the subindex 1 for the Green's function to stress on the fact that we count orbitals starting at the surface. One gets the density of states for the surface of the chain
+
+\begin{equation}
+N_{\text {surf. }}(\varepsilon)=\dfrac{1}{\pi V} \sqrt{1-\left(\dfrac{\varepsilon-E_{0}}{2 V}\right)^{2}} .
+\end{equation}
+
+Incidentally let us note that an identical DoS is obtained when the Hamiltonian is a Random Matrix \cite{Mattis1980}. In this case one can use the Lanczos method to tridiagonalize the matrix in the infinite dimension limit and see that it corresponds to the ordered chain we just discussed.
+
+The return probability to the surface site, as defined in Eq. (62) gives
+
+
+\begin{equation}
+P_{1,1}(t)=\left|\dfrac{\hbar}{V t} J_{1}\left(\dfrac{2 V t}{\hbar}\right)\right|^{2} \simeq \dfrac{1}{\pi}\left[\dfrac{\hbar}{V t}\right]^{3},
+\end{equation}
+
+indicating a decay of the surface state. This exact result, which differs from the usual exponential and diffusive laws usually adopted for the empirical description of decay phenomena, describes an ``irreversible'' escape from the site. This contrasts with finite systems where recurrences, called mesoscopic echoes \cite{Prigodin1994,Cucchietti1998}, appear at a typical time estimated as $\hbar / \Delta$, called the Heisenberg time.
+
+Perhaps, the most important conclusion to be drawn from the previous results is the correction to energies of finite systems to account for its contact to infinite systems.
+
+\subsection*{3.11. Adatoms and surface states}
+The method given above allows us to extend the decimation procedure for finite systems described in the previous section to composite systems (finite + infinite). Let us discuss the simplest but still non-trivial example. Indeed one can think of the 0-th site as an adatom in the surface of a metal. In that case its energy $E_{s}$ and hopping element $V_{s}$ are different from those of the bulk, $E_{0}$ and $V$ respectively. The Green's function evaluation leads to
+
+\begin{widetext}
+    \begin{equation}
+G_{s, s}^{R}=\dfrac{1}{\varepsilon-E_{s}-\left|\dfrac{V_{s}}{V}\right|^{2} \dfrac{\left(\varepsilon-E_{0}\right)-i \sqrt{4 V^{2}-\left(\varepsilon-E_{0}\right)^{2}}}{2}} . 
+\end{equation}
+\end{widetext}
+
+We leave to the reader the evaluation of the local DoS both numerically and analytically, as well as the calculation of the condition for the appearance of localized states and resonances. For $V_{s}=V$, a localized state may appear. It shows up as an isolated pole in $G_{s, s}^{R}(\varepsilon)$ in the real axis at
+
+\begin{equation}
+\tilde{E}_{s}=\dfrac{E_s\left(E_{s}-E_{0}\right)+V^{2}}{E_{s}-E_{0}}, 
+\end{equation}
+% Previous expression:\tilde{E}_{s}=\dfrac{\left(E_{s}-E_{0}\right)^2+V^{2}}{E_{s}-E_{0}}, 
+
+provided that $0<\left|E_s-E_{0}\right|<V$. %Last condition: |-E_0|>0.%
+One can also check that for $\left|E_{s}-E_{0}\right|<V$ and $\left|V_{s} / V\right| \ll 1$, a resonant state will appear a pole in the complex plane with a real part overlaping with continuous band.
+
+Its energy is:
+
+\begin{equation}
+\widetilde{E}_{s} \simeq E_{s}+\left|\dfrac{V_{s}}{V}\right|^{2} \Delta\left(E_{s}\right) . 
+\end{equation}
+
+The return probability is well approximated by an exponential law as prescribed by the Fermi Golden Rule:
+
+\begin{equation}
+\label{FGR}
+P_{s, s}(t) \sim e^{\left(-t / \tau_{s}\right)}, 
+\end{equation}
+
+with
+
+\begin{equation}
+\dfrac{1}{\tau_{s}}=\dfrac{2 \pi}{\hbar}\left|V_{s}\right|^{2} N_{\text {surf. }}\left(E_{s}\right) \simeq \dfrac{2 \Gamma_{s}\left(E_{s}\right)}{\hbar} . 
+\end{equation}
+
+Again, one sees that the time dependencies that appear in Quantum Mechanics can be very different from those present in a classical random walk.
+
+\subsection*{3.12. Localized state in a branched circuit}
+There is a highly non-trivial result \cite{DAmato1989} that can be easily obtained with the help of the above formalism. This is the existence of localized states in branching regions.
+
+In general, for a site $x$ to which $z$ semi-infinite chains are connected, the Green's function at the crossing site between branches can be written as
+
+\begin{equation}
+G_{x, x}^{R}=\dfrac{1}{\varepsilon-E_{0}-z \dfrac{\left(\varepsilon-E_{0}\right)-i \sqrt{4 V^{2}-\left(\varepsilon-E_{0}\right)^{2}}}{2}} .
+\end{equation}
+
+Which besides of the expected branch cut in $\left|\varepsilon-E_{0}\right|<2 V$, it presents isolated poles at
+
+\begin{equation}
+\label{eq:lst}
+E_{\mathrm{branch}}=E_{0} \pm 2 V \dfrac{z^{2}}{4(z-1)} .
+\end{equation}
+
+These solutions, are not only present in a branching polymer, but in a conveniently grown heterostructure \cite{Chang1985}. The existence of a topologically confined states in the case $z=3$ has become the basis for quantum transistors \cite{Sols1989} and lasers \cite{Wegscheider1993}.
+
+\subsection*{3.13. Representation of the environment through selfenergies}
+First we recall that one can always eliminate microscopic degrees of freedom \cite{Levstein1990,Lowdin1951} generating an effective Hamiltonian that accounts for them exactly. This produces effective interactions and energy renormalization which depend themselves on the observed energy. Furthermore, one can include the effects of a whole lead in a Hamiltonian description through an imaginary correction to the eigenenergies. In fact, an electron originally localized in the region called ``the sample'' should eventually escape or decay toward the lead. Hence, there is a escape velocity associated with the energy uncertainty of a local state $i$ :
+
+
+\begin{equation}
+\label{eq:derat}
+v_{i}=\dfrac{2 a}{\hbar} \Gamma_{i}=\dfrac{a}{\tau_{i}}. 
+\end{equation}
+
+
+Other interactions that one usually considers produce decay rates reasonably well described by the Fermi Golden Rule: electrons in an excited atom decaying into the continuum, or propagating electrons decay into different momentum states by collision with impurities producing phonons or photons. In some of these cases we have to add some degrees of freedom to the sum (the phonon or photon coordinates). A process $\alpha$ may produce a complex contribution ${ }^{\alpha} \Sigma_{0}^{R}$ which adds into the total self-energy $\Sigma_{0}^{R}$. In particular this is the interpretation one must give to the small imaginary part $\eta$ we introduced in the definition of the Green's function of Eq.~\eqref{eq:advgreen}. The effective Hamiltonian becomes:
+
+\begin{equation}
+\hat{\mathcal{H}}^{(o)} \xrightarrow[\text { interactions }]{ } \hat{\mathcal{H}}=\hat{\mathcal{H}}^{(o)}+\hat{\Sigma}^{R},
+\end{equation}
+
+with
+
+\begin{equation}
+\hat{\Sigma}^{R(A)}=\sum_{i}\left(\Delta_{i} \mp i \Gamma_{i}\right)(|i\rangle\langle i|). 
+\end{equation}
+
+That is, we can not find eigenstates because the complete Hamiltonian is not separable into a product of states of the unperturbed system and those of the environment.
+
+In terms of the Green's function the resulting equation is, in the matrix representation:
+
+\begin{equation}
+\label{eq:gfmr}
+\mathbf{G}^{R}=\mathbf{G}^{(o) R}+\mathbf{G}^{(o) R} \boldsymbol{\Sigma}^{R} \mathbf{G}^{R}. 
+\end{equation}
+
+
+The diagrammatic expansion for the perturbed Green's function is shown in Fig.~\ref{fig:SEC}.
+
+\begin{figure}[ht]
+  \includegraphics[width=0.95\columnwidth]{Figures/09_SEC.pdf}
+\caption{Diagrams in Fig. 5 can be rearranged into the selfenergy correction $\Sigma$. This equation is valid independently of the approximation used to calculate $\Sigma$. In the lower panel self-energies obtained through escape to the leads and electron-phonon interactions are shown. The escape self-energies contain the hopping (dot) and a propagator in the lead. An electron-phonon self-energy is evaluated in terms of the sample's electron (straight-line) and phonon (wavy-curve) Green's functions.}
+\label{fig:SEC}
+\end{figure}
+
+Although the Green's function formalism seems to introduce some extra notation, this has various conceptual advantages. For example, it is straightforward to use Eq.~\eqref{eq:gfmr} to prove a version of the optical theorem which relates the imaginary part of the forward scattering amplitude with the total cross section of the pertubation. One starts by writting Eq.~\eqref{eq:gfmr} in the form:
+
+\begin{equation}
+\Sigma^{R}=\left(\mathbf{G}^{(o) R}\right)^{-1}-\left(\mathbf{G}^{R}\right)^{-1}, 
+\end{equation}
+
+and an equivalent one for $\boldsymbol{\Sigma}^{A}$. The difference between them is:
+
+\begin{eqnarray}
+\Sigma^{R}-\Sigma^{A} & =&\left(\mathbf{G}^{A}\right)^{-1}-\left(\mathbf{G}^{R}\right)^{-1}, \nonumber\\
+&&=\left(\mathbf{G}^{R}\right)^{-1}\left(\mathbf{G}^{R}-\mathbf{G}^{A}\right)\left(\mathbf{G}^{A}\right)^{-1},\\
+\end{eqnarray}
+
+from which we obtain:
+
+\begin{equation*}
+\left[\mathrm{G}^{R}-\mathrm{G}^{A}\right]=\mathrm{G}^{R}\left(\Sigma^{R}-\Sigma^{A}\right) \mathrm{G}^{A}, \tag{83}
+\end{equation*}
+
+
+which has deep physical significance. It is an integral equation relating the local densities of states given Eq.~\eqref{eq:DoS} and the decay rates provided by Eq.~\eqref{eq:derat}. Perhaps, the most important advantage of Green's functions, is that they can be used also in the Quantum Field Theory \cite{Keldysh1962,Danielewicz1984} to deal with the many-body case and are a relevant tool in the clarification of the problem of tunneling time.

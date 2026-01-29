@@ -1,0 +1,74 @@
+\section*{2. The basic ideas of Landauer}
+Rolf Landauer was the first to realize that, besides the ``sample'' or device one must explicitly incorporate the electrodes or contacts in the transport description. He introduced two one-dimensional wires, left $(\mathrm{L})$ and right $(\mathrm{R})$, connecting ``the sample'' to electron reservoirs. The net current leaving the lead $L$ is expressed in terms of the number of electrons available in the leads, their typical velocity and the probability $T_{R, L}$ of transmission through the sample
+
+\begin{eqnarray} 
+\label{eq:IL}
+I_{L} &=& e \int \left[ T_{R,L}(\varepsilon) v_{L} 
+        \frac{1}{2} N_{L}(\varepsilon) f_{L}(\varepsilon) \right. \nonumber \\
+& & \left. - T_{L,R}(\varepsilon) v_{R} 
+        \frac{1}{2} N_{R}(\varepsilon) f_{R}(\varepsilon) \right] d\varepsilon .
+\end{eqnarray}
+
+
+The meaning of this equation is obvious: it balances currents. Each reservoir $i$ emits electrons with an energy availability controlled by a local distribution function $f_{i}(\varepsilon)= 1 /\left[\exp \left[\left(\varepsilon-\mu_{i}\right) / k_{\mathrm{B}} T+1\right]\right.$, where $\varepsilon$ is the energy and $\mu_{i}= \mu_{o}+\delta \mu_{i}$ is the chemical potential which is displaced from its equilibrium value $\mu_{o}$. The density of those ``outgoing'' states is $\frac{1}{2} N_{i}(\varepsilon)$ (half the total) and their velocity $v_{i}$. The coefficient $T_{R, L}$ computes current as positive provided that the particle can pass through the sample. Taking the $i=L$ reservoir as reference, the first term is then an ``out'' current while the second is the ``in'' contribution. It was essential in Landauer's reasoning to note that in a propagating channel the density of states $N_{i}$ is inversely proportional to the corresponding group velocity:
+
+\begin{equation}
+N_{i} \equiv \frac{2}{v_{i} h}.
+\label{eq:Ni}
+\end{equation}
+
+This fundamental fact remained unnoticed in the previous discussions of quantum tunneling \cite{Esaki1974} and it is the key to understand conductance quantization. Notice that there is no use for the traditional $\left[1-f_{j}(\varepsilon)\right]$ factor to exclude transitions to occupied final states. In a scattering formulation, the final ``out'' states are already contained in the ``in'' states \cite{Schiff1949}. Although different ``in'' states (e.g. on the left and right leads) could end in the same final state, unitarity of quantum mechanics assures that outgoing contributions are orthogonal.
+
+To obtain the usual Landauer two probe conductance, one assumes time reversal for the transmittances: $T_{R, L}=T_{L, R}$. At low temperatures, the Fermi distribution function can be safely replaced by a step function. If linear response can be invoked ($\delta \mu_{i}=\mu_{i}-\varepsilon_{F} \ll \varepsilon_{F}$), the integral is approximated by using the transmittance evaluated at a Fermi energy. If we do not include the usual factor of 2 due to the spin degeneracy, one gets
+
+\begin{equation*}
+I=\frac{e}{h} T_{R, L}\left(\delta \mu_{L}-\delta \mu_{R}\right),
+\label{eq:I}
+\end{equation*}
+
+where
+
+\begin{equation}
+\left(\delta \mu_{L}-\delta \mu_{R}\right)=e V
+\label{eq:dmu}
+\end{equation}
+
+from which the two-probe conductance can be calculated
+
+\begin{equation}
+G_{R, L}=\frac{e^{2}}{h} T_{R, L}.
+\label{eq:GRL}
+\end{equation}
+
+This conductance accounts for the ``sample-lead'' system. In a perfect 1-d conductor $T_{R, L}=1$, and it remains finite. In fact, resistance results $h / e^{2}=25.812 \mathrm{~K} \Omega$ per channel, the quantum value found later in the Quantum Hall Effect. In contrast, the original Landauer's conductance
+
+\begin{equation}
+G_{R, L}^{\mathrm{f.p.}}=\frac{e^{2}}{h} \frac{T_{R, L}}{1-T_{R, L}}
+\label{eq:GRLfp}
+\end{equation}
+
+is an attempt to extract an intrinsic property of the ``sample''. This conductance corresponds to a four probe measurement, as shown in Fig.~\ref{fig:landauer} (upper panel) where two leads are used to inject and drain the current respectively, while the other two additional ``non-invasive'' probes, denoted by A and B, are used to measure the voltage drop in the ``sample'' neighborhood. They are very weakly coupled wires or capacitive ``non-invasive'' probes. The difference,
+
+\begin{equation}
+R^{\text {contact }}=\frac{1}{G_{R, L}}-\frac{1}{G_{R, L}^{\mathrm{f.p.}}}=\frac{h}{e^{2}},
+\label{eq:Rcontact}
+\end{equation}
+
+can be interpreted as a contact resistance associated to the lead-sample interface.
+
+\begin{figure}[ht]
+  \includegraphics[width=0.95\columnwidth]{Figures/02_Landauer.pdf}
+  \caption{Upper panel: Landauer's representation of a general electronic transport experiment. Lead at left (L) and right (R) inject and extract current. Weakly coupled voltage probes A and B at the ``sample'' boundaries are also represented. Lower Panel: Portion of an actual molecular sandwich heterostructure between a Au-Ti left electrode and a right Au electrode. The bridge molecule is 4-4-thioacetilbiphenyl. The residue at right (X = S, Se, Te) can be substituted.}
+  \label{fig:landauer}
+\end{figure}
+
+A more general formulation of Eqs.~\eqref{eq:IL} and \eqref{eq:Ni} for a system composed by many channels (e.g. spin and transversal modes) subject to different boundary conditions results from the application \cite{Buttiker1986} of the Kirchoff law using Landauer's conductances
+
+\begin{equation}
+I_{i}=\frac{e}{h} \sum_{j} \int\left[T_{j, i}(\varepsilon) f_{i}(\varepsilon)-T_{i, j}(\varepsilon) f_{j}(\varepsilon)\right] d \varepsilon .
+\label{eq:Ii}
+\end{equation}
+
+We do not exclude sites $i=j$ from the sum. Here, the transmission coefficients may depend on the external parameters such as voltages, and hence accounts for non-linear response. The non-ohmic $I$-$V$ curve of the DBRTD shown in Fig.~\ref{fig:DBRTD} can indeed be obtained directly from this formula by summing up over transversal quantum numbers (channels) in the left and right leads. Also $\mu_{i}=\mu_{L}$ for every outgoing channel in the left lead and $\mu_{i}=\mu_{R}$ for every outgoing channel in the right lead.
+
+Having understood the basic requirements of a transport theory one must learn to connect the transmittances $T$ with the electronic properties of the ``sample'' and electrodes. In the treatment of solid state devices many researchers adopted the strategy of modeling the transport through the scattering matrices. However, when one deals with a molecular system, it becomes clear that specific features of the electronic structure at the molecular level are relevant. Thus, at least an approximate description of these properties through Hamiltonian models is mandatory. Let us remark that in the Landauer formalism, the ``sample'' is considered a finite system while the electrodes are considered in their thermodynamic limit with a continuum spectrum and acting as charge reservoirs. One then needs a formulation capable of dealing naturally with both situations.

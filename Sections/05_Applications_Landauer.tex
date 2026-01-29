@@ -1,0 +1,244 @@
+
+\section*{5. Applications of Landauer's coherent conductance}
+\subsection*{5.1. Lyapunov exponents and localization length}
+The calculation of actual eigenstates in disordered potentials of an infinite system is a very subtle mathematical problem. In contrast, the computation of Green's functions and conductances of arbitrary size can be done at a relatively low computational cost. The sparse nature of the single particle Hamiltonian when it is expressed in a localized basis (tightbinding approximation) allows the implementation of a recursive calculation of the Green's function. These methods, originally devised to deal with inhomogeneous and disordered systems, allow the calculation of the quantum transmittances such as $T_{R, L}$. Typically, it requires $L_{x} / a$ operations (products and inversions) with matrices of size $M \times M$.
+
+Historically, Landauer's reasonings were decisive in the development of the theory of electronic localization in disordered systems \cite{Pastawski1983,Kramer1993}. In particular, the method developed above can be used to proof rigorously that in one dimension there are no extended states. Every eigenstate should decay exponentially away of some particular localization center. The exponential rate corresponds to the Lyapunov exponent $\gamma$ of the iterative Dyson Equation. The associated length, $\xi=1 / \gamma$, is called localization length.
+
+The Lyapunov exponent can be evaluated from the Green's functions $G_{1, n}$ and $G_{n, n}$ using the limit relations
+
+\begin{equation}
+\label{eq:gamma}
+\gamma(\varepsilon)=\dfrac{1}{a} \lim _{L \rightarrow \infty}\left[\dfrac{1}{L} \ln \left|\dfrac{G_{L, L}(\varepsilon)}{G_{1, L}(\varepsilon)}\right|\right].
+\end{equation}
+
+This definition is completely general and works either for ordered and disordered situations. To check how it works, let us first consider the 1-d ordered chain. The solution of Eq.~\eqref{eq:gamma} is analytic
+
+\begin{equation}
+    \gamma(\varepsilon)= \begin{cases}\dfrac{1}{a} \operatorname{arccosh}\left(\dfrac{\varepsilon-E_{0}}{2 V}\right) & \text { for }\left|\varepsilon-E_{0}\right|>|2 V|,  \\ 0 & \text { for }\left|\varepsilon-E_{0}\right|<|2 V| .\end{cases}
+\end{equation}
+
+This clarifies that $\gamma(\varepsilon)$ is just the analytical continuation of the wave vector $k(\varepsilon)$. Already in this case, we can identify two regions: one which coincides with the Bloch band where localization length is infinite and the rest, where the states, if any, are localized. This is the region where the described states in the branching region and the surface states lie.
+
+\subsection*{5.2. Localization in a conjugated polymer}
+In order to consider a more realistic example of specific interest in molecular electronics, let us consider a model \cite{Heeger1988} for the simplest conjugated polymer: polyacetilene. This can be described by the Hamiltonian,
+
+\begin{equation}
+\hat{\mathcal{H}}_{0}=\sum_{n(\text { odd })}\left\{V_{2}|n\rangle\langle n+1|+V_{1}|n+1\rangle\langle n+2|+\text { c.c. }\right\},
+\end{equation}
+
+where $V_{2}=-\left(V_{\pi}+\delta\right)$ and $V_{1}=-\left(V_{\pi}-\delta\right)$ where $V_{\pi}>0$ is the energy associated with a $\pi-\pi$ bonding. This is represented schematically in Fig.~\ref{fig:PM} $\delta$ is the additional energy involved in the dimerization to form the alternate double bond (conjugated system). Hence, the unit cell has two $\mathrm{C}-\mathrm{H}$ monomers. Again, the Lyapunov exponent can be calculated either analytically or numerically giving
+
+\begin{widetext}
+\begin{equation}
+    \gamma(\varepsilon)= \begin{cases}\dfrac{1}{a} \operatorname{arccosh}\left[\dfrac{\varepsilon^{2}-\left(V_{1}^{2}+V_{2}\right)}{2 V_{2} V_{1}}\right] & \text { at the gaps } \\ 0 & \text { at the valence band, } V_{2}+V_{1}<\varepsilon<V_{2}-V_{1} \\ 0 & \text { at the conduction band, }-V_{2}+V_{1}<\varepsilon<-V_{2}-V_{1} .\end{cases}
+\end{equation}
+\end{widetext}
+
+\begin{figure}[h]
+  \includegraphics[width=0.95\columnwidth]{Figures/10_PM.pdf}
+\caption{In the upper panel the polyacetilene macromolecule is represented. Double bonds and simple bonds alternate. This gives an alternation in the energies associated to $\pi-\pi$ bonding. The lower scheme shows the Lyapunov exponent as a function of the energy. Scales are discussed in the text.}
+\label{fig:PM}
+\end{figure}
+
+This simple situation hints at the solution of a the more complex disordered systems. Conceptually, a disordered sample can be visualized as a periodic array of disordered unit cells of size $L=N a$, with a progressively increasing $N$. Then, the localization transition appears as the dominance of the ``gaps'' over the ``bands'' whose width (spectral support) decreases as $V \exp (-\gamma N a)$. With the decimation methodology developed above, the numerical evaluation of the Lyapunov exponent is straightforward.
+
+\subsection*{5.3. Metal-insulator transition}
+In one dimensional systems, the exponential decrease of the conductance follows directly from the statistical properties of the transmission probability $T \sim \exp \left(-L_{x} / \xi\right)$ in a disordered system. Therefore, the 'four-probe' Landauer's conductance given by Eq.~\eqref{eq:GRLfp}, by describing the intrinsic properties of the ``sample'', contains the correct scaling behavior of the conductance ranging from the non-extensive behavior when $L_{x} \gg \xi$,
+
+
+\begin{equation}
+G_{R, L}^{\mathrm{f} . \mathrm{p} .}\left(L_{x}\right) \simeq \dfrac{e^{2}}{h} \exp \left(-\dfrac{L_{x}}{\xi}\right), 
+\end{equation}
+
+to the expected Ohmic behavior described by Drude's law in terms of the mean free path $\ell=\xi / 2$,
+
+\begin{equation}
+G_{R, L}^{\mathrm{f} . \mathrm{p} .}\left(L_{x}\right)=\dfrac{e^{2} N_{0} v_{F} \ell}{L_{x}}, 
+\end{equation}
+
+when $L_{x}<\ell$. Statistical subtleties aside, this last result is obtained by expanding the transmittance in its lowest order in $L_{x} / \xi$.
+
+A similar reasoning can be applied to higher dimensional systems ( $d \geq 2$ ) with hyper-cubic shape. The conductance can be calculated with Eq.~\eqref{eq:GRLfp} by attaching two onedimensional leads. The metal-insulator transition is possible because the curve $\xi(L)=2 \ell(L / a)^{d-1}$, valid for weak scattering, bends down to an asymptotic value $\xi(L) \rightarrow \xi_{\infty}$. This effect manifests itself in a universal behavior. One considers the conductance of samples of size $L^{d}=(N a)^{d}$ with Anderson disorder with two one dimensional leads attached as shown in Fig.~\ref{fig:T1D}. The adimensional conductance $g_{L}=\left(h / e^{2}\right) G_{R, L}^{\mathrm{f} . \mathrm{p} .}(L)$ is calculated using Eq.~\eqref{eq:GRLfp}. For each dimensionality, all sizes and disorders strength scale into a single scaling curve
+
+\begin{equation}
+\beta_{d}=\dfrac{L}{g_{L}} \dfrac{d g_{L}}{d L}.
+\end{equation}
+
+\begin{figure}[h]
+  \includegraphics[width=0.95\columnwidth]{Figures/11_T1D.pdf}
+\caption{Scheme of the use of the calculation of 1-d transmittance to obtain the transport properties of a 2-d system.}
+\label{fig:T1D}
+\end{figure}
+
+
+This is shown in Fig.~\ref{fig:NE} for dimensions $\mathrm{d}=2$ and $\mathrm{d}=3$ as a function of $\ln \left[g_{L}\right]$.
+
+\begin{figure}[h]
+  \includegraphics[width=0.95\columnwidth]{Figures/12_NE.pdf}
+  \caption{Numerical scaling function 
+  $\beta = \left(L / g_{L}\right) \left(\Delta g_{L} / \Delta L \right)$
+  evaluated from the adimensional conductance $g_{L}$ of samples of 2D and 3D system size $L^{\mathrm{d}}$. 
+  We use the Anderson model at $\varepsilon_{F}=0$. 
+  Data for disorder $W / V = 4,5,6,7,8,10,14$ and sizes up to $L^{2}=20 \times 20 \, a^{2}$ collapse on the 2D curve of the filled circles. 
+  Data for disorder $W / V = 6,8,10,14,15.5,16.5,17$ and 18 and sizes up to $L^{3}=6 \times 6 \times 6 \, a^{3}$ collapse on the 3D curve of the empty circles. 
+  In 3D, the critical conductance is $g_{c} \simeq 3.2$ and corresponds to a critical disorder $W_{c} / V \simeq 16$.}
+  \label{fig:NE}
+\end{figure}
+
+The arrows indicate the directions in which $g_{L}$ moves as the size of the system increases. The fact that $\beta_{d=2}$ (full circles) flows from $\beta_{2}=0$ towards $-\infty$ indicates that, for any positive disorder all states are localized. In contrast, in a $\beta_{d=3}$ the curve can flow either towards $\beta_{2}=1$, if the disorder is weak enough ( $W<W_{c}$ ), or towards $\beta_{2} \rightarrow-\infty$ for disorder above certain critical value ( $W>W_{c}$ with $W_{c} \simeq 6.5 \mathrm{~V}$ ). This shows that the MIT is a critical phenomenon as any other thermodynamical phase transition.
+
+The point we want to stress here is that the ``non-invasive voltage probes'' of the Landauer picture rescue a ``local'' meaning for the conductance and emphasizes the non-extensive behavior introduced by quantum interferences. The presence of decoherent processes or voltmeters on a scale $L_{\phi}$ ``break'' the quantum conductance into an incoherent sum of $L_{\phi} / L_{x}$ separate pieces where the transport is coherent and hence described by Eq. (5). The total conductance becomes $\mathrm{G}_{R, L}\left(L_{x}\right)=\left(L_{\phi} / L_{x}\right) G_{R, L}^{\mathrm{f} . \mathrm{p} .}\left(L_{\phi}\right)$ recovering the extensive Ohmic behavior.
+
+\subsection*{5.4. The Aharonov-Bohm effect and non-local properties}
+Setting the Zeeman effect aside, the main consequence of a magnetic field is to affect the wave function's phase in
+
+\begin{equation*}
+    \phi=\dfrac{e}{h c} \int \vec{A} \cdot d \vec{l}.
+\end{equation*}
+
+In the Peierls substitution, appropriate for discrete models, this is achieved by modifying the coupling $V \mapsto V \exp (i \phi)$.
+
+When we have a system \cite{Washburn1986} as that shown in Fig.~\ref{fig:PL}, the application of the magnetic field will result in an oscillation of the conductance \cite{Altshuler1981} due to the interference of the probability amplitudes propagated through different branches of the system.
+
+\begin{figure}[h]
+  \includegraphics[width=0.95\columnwidth]{Figures/13_PL.pdf}
+\caption{Two tight binding representations of path loops affecting the conductance in a non-local fashion as discussed in the text.}
+\label{fig:PL}
+\end{figure}
+
+Let's assume that in absence of field these pathways superpose in the form of maximally destructive interference in the forward direction and have constructive probability of return $P_{0,0}$ (this is localization)
+
+\begin{equation}
+P_{0,0}=\left|\sum_{i(\text { paths })} u_{0}^{i}\right|^{2}=\sum_{i}\left|u_{0}^{i}\right|^{2}+\sum_{i \neq j} u_{0}^{i} u_{0}^{j *}.
+\end{equation}
+
+The first term in the right side is the contribution of uncorrelated pathways. The second term gives the interference effects, it is affected by the magnetic field and contains the non-local effects intrinsic to the Schrödinger equation. In presence of a gauge field $A$, destructive interference is modified producing an increase of the transmittance. This is a positive magnetoconductance \cite{Medina2000}, a characteristic effect of coherent systems at very low fields. If the inelastic events along the pathways start contributing to the loss of phase memory, the field effect becomes progressively weaker until it eventually disappears. As we will see bellow, a very strong magnetic field causes interferences in the short distances (toward the Landau levels) therefore giving a new tendency toward localization.
+
+\subsection*{5.5. Conductance quantization in 2-d}
+Extending what is observed in a $1-\mathrm{d}$ ordered chain, where transmittances are either 0 or 1 depending on the energy of the injected excitation; when one considers the $1^{+}-\mathrm{d}$ (strips) and real 2-d systems, we have to account for the different propagating modes. As the available energy increases, new lateral modes becomes available increasing the total current. According to Eq. (96) the conductance is bounded by
+
+\begin{equation}
+G_{R, L} \leq \dfrac{e^{2}}{h} \min \left[{ }^{L} M_{\left(\varepsilon_{F}\right)},{ }^{R} M_{\left(\varepsilon_{F}\right)}\right]. 
+\end{equation}
+
+For perfect transmitting samples, a situation that requires order and reflection symmetry $\left[{ }^{L} M_{\left(\varepsilon_{F}\right)}={ }^{R} M_{\left(\varepsilon_{F}\right)}\right], T_{j, i}$ is either 1 or 0 and one obtains the conductance quantization in integer multiples of $e^{2} / h$. This effect is spectacularly verified in specially tailored nano-structures. The conductance shows discrete steps in units of $e / h$ as shown in Fig.~\ref{fig:QC}.
+
+\begin{figure}[h]
+  \includegraphics[width=0.95\columnwidth]{Figures/14_QC.pdf}
+\caption{Quantized conductance as a function of channel width.}
+\label{fig:QC}
+\end{figure}
+
+Such an effect is restricted to artificial devices \cite{Wharam1988}. The same effect occurs when there is a metallic bridge between two electrodes and these are pulled apart. The bridge stretches becoming progressively thinner until its breakdown. This process is monitored by the carriers, which, as the bridge becomes narrower, loose propagating channels below the Fermi energy. As a consequence the conductance shows clear steps such as those shown in in Fig. 14. The adiabatic approximation, justified by the high electronic speeds as compared to any modification of the contact structure, allows the use of a simple model where the time is parametrically associated with the width represented in Fig.~\ref{fig:GN}.
+
+\begin{figure}[ht]
+  \includegraphics[width=0.95\columnwidth]{Figures/15_GN.pdf}
+\caption{Geometry of the neck formed when a nanowire is pulled lengthwise. As the transverse dimension shrinks conductance channels are excluded as shown in the lower panel where we show a scheme of the transverse mode energies as a function of position.}
+\label{fig:GN}
+\end{figure}
+
+\subsection*{5.6. Hall effect}
+In the classic theory of the Hall effect the external magnetic field produces a coefficient $R_{H}=-1 / n e$ which is negative if the carriers are electrons and is inversely proportional to the electron density. In a two dimensional system, we can evaluate the Hall effect at low fields by using a simple model that has two $1-\mathrm{d}$ contacts to inject and measure the current and two additional ones to measure the Hall voltage. These are shown in Fig.~\ref{fig:GRHE}.
+
+\begin{figure}[ht]
+  \includegraphics[width=0.95\columnwidth]{Figures/16_GRHE.pdf}
+\caption{Geometrical representation of the model used to evaluate the Hall effect.}
+\label{fig:GRHE}
+\end{figure}
+
+Since the chemical potentials and voltages are related by $V_{p}=\mu_{p} / e$, Eq.~\eqref{eq:Ii} becomes
+
+\begin{equation*}
+    I_{p}=\sum_{q=1}^{4}\left[G_{q, p} V_{p}-G_{p, q} V_{q}\right] .
+\end{equation*}
+
+When all the chemical potentials are equal, there is no current and $\sum_{q} G_{p, q}=\sum_{q} G_{q, p}$ from which
+
+\begin{equation*}
+    I_{p}=\sum_{q=1}^{4} G_{p, q}\left(V_{p}-V_{q}\right) .
+\end{equation*}
+
+We can always choose one of the voltages, e.g. one of the current leads as a reference setting $V_{4}=0$. Therefore, the problem simplifies to three linear equations
+
+\begin{widetext}
+\begin{equation*}
+    \left(\begin{array}{c}
+I_{1} \\
+I_{2} \\
+I_{3}
+\end{array}\right)=\left(\begin{array}{ccc}
+G_{2,1}+G_{3,1}+G_{4,1} & -G_{1,2} & -G_{1,3} \\
+-G_{2,1} & G_{1,2}+G_{3,2}+G_{4,2} & -G_{2,3} \\
+-G_{3,1} & -G_{3,2} & G_{1,3}+G_{2,3}+G_{4,3}
+\end{array}\right)\left(\begin{array}{c}
+V_{1} \\
+V_{2} \\
+V_{3}
+\end{array}\right)
+\end{equation*}
+
+In short $I_{i}=\sum_{j} M_{i, j} V_{j}$, where we invert the matrix of conductances M obtaining
+
+\begin{equation*}
+    \left(\begin{array}{l}
+V_{1} \\
+V_{2} \\
+V_{3}
+\end{array}\right)=\left(\begin{array}{lll}
+R_{1,1} & R_{1,2} & R_{1,3} \\
+R_{2,1} & R_{2,2} & R_{2,3} \\
+R_{3,1} & R_{3,2} & R_{3,3}
+\end{array}\right)\left(\begin{array}{c}
+I_{1} \\
+I_{2} \\
+I_{3}
+\end{array}\right) .
+\end{equation*}
+
+Let's see one of its elements,
+
+\begin{equation*}
+R_{1,1}=\dfrac{\left(G_{2,3}+G_{2,4}+G_{2,1}\right)\left(G_{3,1}+G_{3,2}+G_{3,4}\right)-G_{2,3} G_{3,2}}{\operatorname{det}[\mathbf{M}]} .
+\end{equation*}
+\end{widetext}
+
+The voltage between 2 and 3 is related to the total current
+
+\begin{equation*}
+    R_{H}=\dfrac{V}{I}=\dfrac{V_{2}-V_{3}}{I_{1}}=R_{2,1}-R_{3,1}
+\end{equation*}
+
+which will be zero in absence of a magnetic field. Otherwise, the dependence on magnetic field implicit in the quantum mechanical evaluation of $R_{2,1}$ and $R_{3,1}$, gives the Hall resistance.
+
+There are certain symmetry relations that should be obeyed on the basis of the so called Onsager-Casimir relations; in the linear response regime the Hall resistance obeys
+
+\begin{equation}
+R_{H}(B)=-R_{H}(-B), 
+\end{equation}
+
+where $B$ is the applied field. The previous relation involves the minus sign because the Hall voltage is reversed in the field. Nevertheless, if one simultaneously exchanges the voltage probes there is no change. On the other hand the ordinary longitudinal resistance does not change under the reversal of the field. The symmetry relation can be summarized as
+
+\begin{equation}
+R_{x x}(B)=R_{x x}(-B),
+\end{equation}
+
+and
+
+\begin{equation}
+R_{x y}(B)=R_{y x}(-B) . 
+\end{equation}
+
+These symmetries are well satisfied for an homogeneous sample. On the other hand, for inhomogeneous samples no specific symmetry is experimentally found upon reversing the field. This is due to irregular current patterns occuring in the sampple mixing both $x x$ and $x y$ components the first one being symmetric, and the second antisymmetric, in the field. A more general relatioship for a four probe device can be given as follows: if one defines the resistance $R_{m n, k l}$ as that taken when measuring the voltage between probes $k, l$ while putting current $I$ between probes $m, n$ (imput at $m$ output at $n$ )
+
+\begin{equation}
+R_{m n, k l}=\dfrac{\mathrm{V}_{k}-V_{l}}{I} . 
+\end{equation}
+
+The reciprocity relations are then expressed as
+
+\begin{equation}
+R_{k l, m n}(B)=R_{m n, k l}(-B) . 
+\end{equation}
+
+The Integer Quantum Hall Effect IQHE \cite{Buttiker1988a} follows from the use of Eq.~\eqref{eq:Ii} in the condition that strong magnetic fields confine the propagating electrons to the sample boundaries. The appearance of these new spatial selection rules precludes backward scattering and decoherence \cite{Gagel1996}, yielding the unitary transmittances responsible for the IQHE.

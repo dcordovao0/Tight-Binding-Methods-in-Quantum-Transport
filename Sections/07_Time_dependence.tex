@@ -1,0 +1,69 @@
+
+\section*{7. The solution of time dependence}
+First we remember that the Green's function gives the possibility to write non trivial initial values in the space-time coordinate $X_{j}=\left(\mathbf{r}_{j}, t_{j}\right)$ described by $\varphi_{\text {source }}\left(X_{j}\right)$. Therefore, any wave function injected at space time $X_{j}=\left(\mathbf{r}_{j}, t_{j}\right)$ by an arbitrary source is propagated by the retarded Green's function
+
+
+\begin{equation}
+\varphi\left(X_{2}\right)=i \hbar \int G^{R}\left(X_{2} ; X_{j}\right) \varphi_{\text {source }}\left(X_{j}\right) d X_{j}
+\end{equation}
+
+Here, instead of using a discrete spatial index, we adopted the notation $G_{\mathbf{r}_{2}, \mathbf{r}_{j}}^{R}\left(t_{2 ;} t_{j}\right) \rightarrow G^{R}\left(X_{2} ; X_{j}\right)$ and $\sum_{\mathbf{r}_{j}} \int d t_{j} \rightarrow \int d X_{j}$. To inject particles with some definition in momentum and/or energy we need to introduce precise correlation between space and time variables. We resort to the complementary equation
+
+\begin{equation}
+\varphi^{*}\left(X_{1}\right)=-i \hbar \int \varphi_{\text {source }}^{*}\left(X_{k}\right) G^{A}\left(X_{k} ; X_{1}\right) d X_{k}
+\end{equation}
+
+which we can use to find how the density matrix of particles depends on both correlated initial conditions
+
+\begin{eqnarray}
+&&\left[\varphi^{*}\left(X_{1}\right) \varphi\left(X_{2}\right)\right]=\hbar^{2} \iint G^{R}\left(X_{2}, X_{j}\right)\times \label{eq:denmaini} \\
+&&\left[\varphi_{\text {source }}\left(X_{j}\right) \varphi_{\text {source }}^{*}\left(X_{k}\right)\right] G^{A}\left(X_{k}, X_{1}\right) d X_{j} d X_{k}. \nonumber
+\end{eqnarray}
+
+The usual density function is defined by taking $X_{1}=X_{2}$ i.e. $\rho\left(X_{1}\right)=\varphi^{*}\left(X_{1}\right) \varphi\left(X_{1}\right)$. This is nothing else but the Schrödinger equation written in a general form that allows arbitrary boundary conditions $\left[\varphi_{\text {source }}\left(X_{j}\right) \varphi_{\text {source }}^{*}\left(X_{k}\right)\right]$. One is used to the initial conditions at space-time coordinate $X_{i}$ of the form $\rho_{\text {source }}\left(X_{i}\right)=\left[\varphi_{\text {source }}\left(X_{i}\right) \varphi_{\text {source }}^{*}\left(X_{i}\right)\right]$ which allows precision in the specification of position and time at the price of absolute uncertainty in momentum and energy. The formalism allows one to program an uncertainty tradeoff to approach better to a semiclassical initial condition with energy and momentum known up to some precision.
+
+The basic idea to get the physics of time dependent phenomena from Eqs~\eqref{eq:denmaini} or from its generalization in Quantum Fields Theory \cite{Keldysh1962,Danielewicz1984} is to recognize that in any Green's function $G\left(t_{j} ; t_{k}\right)$, a macroscopically observable time\\
+is $t=\frac{1}{2}\left[t_{j}+t_{k}\right]$ whose Fourier transform is an observable frequency $\omega$. Meanwhile, the microscopic energies $\varepsilon$, are Fourier transforms of internal time differences $t_{j}-t_{k}$. By operating carefully with this concept in Eq.\eqref{eq:denmaini}, the dynamical transmittances $T\left(\mathbf{r}_{f}, \mathbf{r}_{i} ; \varepsilon, \omega\right) \equiv T_{f, i}(\varepsilon, \omega)$ with $\mathbf{r}_{i}$ a position in channel $i$ and $\mathbf{r}_{f}$ a position in channel $f$ are obtained. The manipulation of the time integrals is quite subtle and we refer to Ref. 50 for details. The basic result is
+
+\begin{equation}
+T_{f, i}(\varepsilon, \omega)=2 \Gamma_{f} G_{f, i}^{R}\left(\varepsilon+\frac{1}{2} \hbar \omega\right) 2 \Gamma_{i} G_{i, f}^{A}\left(\varepsilon-\frac{1}{2} \hbar \omega\right), 
+\end{equation}
+
+and is consistent with the steady-state Fisher-Lee equation. From this new formula we can evaluate the probability that the wave packet of mean energy $\varepsilon$ propagates from $i$ to $f$ in a time $t$ as
+
+\begin{equation}
+T_{f, i}(\varepsilon, t)=\int T_{f, i}(\varepsilon, \omega) \exp (-i \omega t) \frac{d \omega}{2 \pi} . 
+\end{equation}
+
+This time dependent transmittance was incorporated in a generalization of the Landauer formula for time dependent phenomena.
+
+Since the spectrum is continuous we can keep the lowest order in the frequency expansion and obtain
+
+\begin{equation}
+T_{f, i}(\varepsilon, \omega) \simeq \frac{T_{f, i}(\varepsilon)}{1-i \omega \tau_{P}} . 
+\end{equation}
+
+Clearly, such approximation would give an exponential for the propagation dynamics which does not describe the very short time regime. According to Eq (4.5) in Ref.~\onlinecite{Pastawski1992}, the typical propagation time $\tau_{P}$ between points $r_{i}$ and $r_{f}$ results
+
+\begin{eqnarray}
+\tau_{P} & =&\frac{i \hbar}{2}\left[G_{f, i}^{R}(\varepsilon) \frac{\partial}{\partial \varepsilon} G_{f, i}^{R}(\varepsilon)^{-1}+G_{i, f}^{A}(\varepsilon) \frac{\partial}{\partial \varepsilon} G_{i, f}^{A}(\varepsilon)^{-1}\right]\nonumber \\
+&& =-\frac{i \hbar}{2} \frac{\partial}{\partial \varepsilon} \ln \frac{G_{f, i}^{R}(\varepsilon)}{G_{i, f}^{A}(\varepsilon)}.
+\end{eqnarray}
+
+This was evaluated in various simple systems in Ref.~\onlinecite{Pastawski1992}. There, for ballistic metals with velocity $v_{\varepsilon}$ one gets $\tau_{P}= \left|\mathbf{r}_{f}-\mathbf{r}_{i}\right| / v_{\varepsilon}$. For diffusive metals where impurity collision at a rate $1 / \tau_{o}$ determines the diffusion constant $D_{\varepsilon}=v_{\varepsilon}^{2} \tau_{o} / 2$ it results $\tau_{P}=\left|\mathbf{r}_{f}-\mathbf{r}_{i}\right|^{2} /\left(2 D_{\varepsilon}\right)$.
+
+As a striking example, we mention the ``simple'' case of tunneling through a barrier \cite{ButtikerLandauer1994} of length $L$ and height $U$ exceeding the kinetic energy $\varepsilon$ of the particle. One gets
+
+\begin{equation}
+\tau_{P}=\frac{L}{\sqrt{\frac{2}{m}(U-\varepsilon)}}, 
+\end{equation}
+
+which, within our non-relativistic description, can be extremely short (even superluminal \cite{Mugnai2000}!) provided that the barrier is high enough.
+
+In a double barrier system, in the regime of resonant tunneling, the above contribution becomes negligible and the propagation time is then fully determined by the life-time inside the well. In fact, by using the functions of the previous section, one gets a delay of
+
+\begin{equation}
+\tau_{P}=\frac{\hbar}{2\left({ }^{L} \Gamma+{ }^{R} \Gamma\right)} 
+\end{equation}
+
+which readily limits the admittance associated to the device to $G(\omega)=G(0) /\left(1-\mathrm{i} \omega \tau_{P}\right)$. This is in fair agreement with the experimental results \cite{Brown1989}. Tunneling times can also be calculated in more complex situations such as disordered \cite{BoltonHeaton1999} systems and situations with coherent capacitive effects and phonon interactions \cite{Haug1998} and decoherent \cite{Pastawski1992} processes.
