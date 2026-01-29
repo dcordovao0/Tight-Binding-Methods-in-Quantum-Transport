@@ -1,0 +1,70 @@
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,
+%pra,
+%prb,
+%rmp,
+%prstab,
+%prstper,
+%floatfix,
+]{revtex4-2}
+
+% Encoding and fonts
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem} 
+
+% Math packages
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+
+% Graphics
+\usepackage{graphicx}
+\graphicspath{{Figures/}}
+\usepackage[export]{adjustbox}
+
+% Fonts, symbols, tables
+\usepackage{dcolumn}
+\usepackage{bm}
+
+
+\begin{document}
+
+\preprint{APS/123-QED}
+
+\title{Tight Binding methods in quantum transport through molecules and small devices: from the coherent to the decoherent description}
+
+\author{Horacio M. Pastawski}
+\affiliation{Facultad de Matemática, Astronomía y Física, Universidad Nacional de Córdoba, Ciudad Univeritaria, 5000 Córdoba, Argentina}
+
+\author{Ernesto Medina}
+\affiliation{Departamento de Física, Colegio de Ciencias e Ingeniería, Universidad San Francisco de Quito, Quito 170901, Ecuador}
+
+\date{\today}
+
+\begin{abstract}
+We discuss the steady-state electronic transport in solid-state and molecular devices in the quantum regime. The decimation technique allows a comprehensive description of the electronic structure. Such a method is used, in conjunction with the generalizations of Landauer's tunneling formalism, to describe a wide range of transport regimes. We analyze mesoscopic and semiclassical metallic transport, the metal-insulator transition, and the resonant tunneling regime. The effects of decoherence on transport is discussed in terms of the D'Amato-Pastawski model. A brief presentation of the time dependent phenomena is also included.
+
+Keywords: Quantum coherence; Green's functions; resonant tunneling\\
+Se discuten el transporte, en el estado estacionario, en dispositivos moleculares y de estado sólido en el régimen cuántico. La técnica de decimación permite una descripción completa de la estructura electrónica. Tal método, en conjunto con la generalización del formalismo de Landauer, puede ser usado para describir un rango amplio de regímenes de transporte. Se analizan el transporte mesoscópico y semiclásico en el régimen metálico, la transición metal-aislante, y el régimen de túnel resonante. Los efectos de decoherencia en el transporte son tratados en términos del modelo de D'Amato-Pastawski. Finalmente se incluye una breve presentación de fenómenos dependientes del tiempo.
+
+Descriptores: Coherencia cuántica; funciones de Green; tunelamiento resonante\\
+PACS: 31.15.-p; 73.21.-b; 73.63.-b
+\end{abstract}
+\maketitle
+
+\input{Sections/01_Intro}
+\input{Sections/02_Landauer}
+\input{Sections/03_Electronic_properties}
+\input{Sections/04_Fisher-Lee_formula}
+\input{Sections/05_Applications_Landauer}
+\input{Sections/06_Decoherence_QT}
+\input{Sections/07_Time_dependence}
+\input{Sections/08_Final_remarks}
+
+\nocite{*}
+\bibliography{references}
+
+\end{document}
